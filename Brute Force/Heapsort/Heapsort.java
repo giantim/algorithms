@@ -2,31 +2,29 @@ import org.algorithm_visualizer.*;
 import java.util.Arrays;
 
 public class Main {
-
    ChartTracer chart;
    LogTracer logger;
-   Integer [] array;
+   Integer[] array;
    Array1DTracer tracer;
 
-   Main()
-   {
+   Main() {
       chart = new ChartTracer();
       logger = new LogTracer("Console");
       array = (Integer[]) new Randomize.Array1D(10, new Randomize.Integer(1, 20)).create();
       tracer = new Array1DTracer("Array1DTracer");
-      Layout.setRoot(new VerticalLayout(new Commander[]{chart, tracer, logger}));   
+      Layout.setRoot(new VerticalLayout(new Commander[] { chart, tracer, logger }));
       tracer.set(array);
       tracer.chart(chart);
+      Tracer.delay();
 
       heapSort(array, array.length);
-      for(int i =0; i < array.length; i++)
+      for (int i = 0; i < array.length; i++)
          logger.print(array[i] + " ");
 
    }
 
    void heapSort(Integer[] array, int size) {
       int i, j, temp;
-
 
       for (i = (int) (Math.ceil(size / 2) - 1); i >= 0; i--) {
          heapify(array, size, i);
@@ -39,7 +37,7 @@ public class Main {
 
          tracer.patch(0, array[0]);
          tracer.patch(j, array[j]);
-         logger.println("Swapping elements : " + array[0] + " & " +  array[j]);
+         logger.println("Swapping elements : " + array[0] + " & " + array[j]);
          Tracer.delay();
          tracer.depatch(0);
          tracer.depatch(j);
@@ -52,8 +50,7 @@ public class Main {
       }
    }
 
-   void heapify(Integer[] array, int size, int root) 
-   {
+   void heapify(Integer[] array, int size, int root) {
       int largest = root;
       int left = 2 * root + 1;
       int right = 2 * root + 2;
