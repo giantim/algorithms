@@ -2,7 +2,7 @@
 #include <vector>
 #include "algorithm-visualizer.h"
 
-const int ARRAYSIZE = /*(½Ã°¢È­ ÇÏ°íÀÚ ÇÏ´Â ¹è¿­ Å©±â¸¦ ÀÔ·Â)*/
+const int ARRAYSIZE = /*(ì‹œê°í™” í•˜ê³ ì í•˜ëŠ” ë°°ì—´ í¬ê¸°ë¥¼ ì…ë ¥)*/
 
 //visualize {
 ChartTracer				chart("ChartTracer");
@@ -11,7 +11,7 @@ LogTracer				logger("LogTracer");
 Randomize::Integer		integer(0, ARRAYSIZE + 20);
 Randomize::Array1D<int> array1D(ARRAYSIZE, integer);
 int D[ARRAYSIZE];
-int count = 0;		//¹«ÇÑ·çÇÁ ¹æÁö¿ë º¯¼ö
+int count = 0;		//ë¬´í•œë£¨í”„ ë°©ì§€ìš© ë³€ìˆ˜
 
 void InitBinarySearch()
 {
@@ -26,22 +26,22 @@ void InitBinarySearch()
 
 void BinarySearch(int array[15], int element)
 {
-	//array		: 0~50»çÀÌ ³­¼ö°¡ Á¤·ÄµÈ ¹è¿­
-	//element	: array ³»¿¡ Ã£°íÀÚ ÇÏ´Â °ª
+	//array		: 0~50ì‚¬ì´ ë‚œìˆ˜ê°€ ì •ë ¬ëœ ë°°ì—´
+	//element	: array ë‚´ì— ì°¾ê³ ì í•˜ëŠ” ê°’
 	// visualize {
 	count++;
 	if (count > ARRAYSIZE / 2) break;
 	logger.println("Using iterative binary search to find" + std::to_string(element));
 	// }
-	int minIndex =		/*(arrayÀÇ ÃÖ¼Ò ÀÎµ¦½º¸¦ ¼³Á¤)*/
-	int maxIndex =		/*(arrayÀÇ ÃÖ´ë ÀÎµ¦½º¸¦ ¼³Á¤)*/
-	int testElement;	//element¿Í °°ÀºÁö È®ÀÎÇÏ±â À§ÇÑ º¯¼ö
+	int minIndex =		/*(arrayì˜ ìµœì†Œ ì¸ë±ìŠ¤ë¥¼ ì„¤ì •)*/
+	int maxIndex =		/*(arrayì˜ ìµœëŒ€ ì¸ë±ìŠ¤ë¥¼ ì„¤ì •)*/
+	int testElement;	//elementì™€ ê°™ì€ì§€ í™•ì¸í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
 
-	while (/*(¾Ë¸ÂÀº Á¶°Ç)*/)
+	while (/*(ì•Œë§ì€ ì¡°ê±´)*/)
 	{
-		int middleIndex = /*(middleIndex¸¦ ¾Ë¸Â°Ô ¼³Á¤)*/
+		int middleIndex = /*(middleIndexë¥¼ ì•Œë§ê²Œ ì„¤ì •)*/
 
-		//middleIndex¸¦ ¹Ù²ã°¡¸é¼­ testElement°¡ element¿Í ÀÏÄ¡ÇÏ´ÂÁö Å½»ö
+		//middleIndexë¥¼ ë°”ê¿”ê°€ë©´ì„œ testElementê°€ elementì™€ ì¼ì¹˜í•˜ëŠ”ì§€ íƒìƒ‰
 		testElement = array[middleIndex];
 
 		//visualize {
@@ -54,23 +54,23 @@ void BinarySearch(int array[15], int element)
 		tracer.deselect(minIndex, maxIndex);
 		// }
 
-		if (/*(¾Ë¸ÂÀº Á¶°Ç)*/)
+		if (/*(ì•Œë§ì€ ì¡°ê±´)*/)
 		{
 			//visualize {
 			logger.println("Going right.");
 			// }
-			/*(minIndex,maxIndex µÑÁß ÇÏ³ª)*/ = middleIndex + 1;
+			/*(minIndex,maxIndex ë‘˜ì¤‘ í•˜ë‚˜)*/ = middleIndex + 1;
 		}
-		else if (/*(¾Ë¸ÂÀº Á¶°Ç)*/)
+		else if (/*(ì•Œë§ì€ ì¡°ê±´)*/)
 		{
 			//visualize {
 			logger.println("Going left.");
 			// }
-			/*(minIndex,maxIndex µÑÁß ÇÏ³ª)*/ = middleIndex - 1;
+			/*(minIndex,maxIndex ë‘˜ì¤‘ í•˜ë‚˜)*/ = middleIndex - 1;
 		}
 		else
 		{
-			//Ã£¾ÒÀ» °æ¿ì
+			//ì°¾ì•˜ì„ ê²½ìš°
 			//visualize {
 			logger.println(std::to_string(element) + "is found at position " + std::to_string(middleIndex) + "!");
 			tracer.select(middleIndex);
@@ -89,7 +89,7 @@ int main()
 	//visualize {
 	InitBinarySearch();		
 	//}
-	Randomize::Integer randInteger(0, 14);	//0~14 »çÀÌ ³­¼ö ¹ß»ı °´Ã¼( create() È£Ãâ ½Ã ³­¼ö ¹İÈ¯)
-	int element = D[randInteger.create()];	//DÀÇ °ªÁß ÀÓÀÇÀÇ °ª element·Î ¼±ÅÃ
-	BinarySearch(D, element);				//D ¹è¿­¿¡¼­ element search
+	Randomize::Integer randInteger(0, 14);	//0~14 ì‚¬ì´ ë‚œìˆ˜ ë°œìƒ ê°ì²´( create() í˜¸ì¶œ ì‹œ ë‚œìˆ˜ ë°˜í™˜)
+	int element = D[randInteger.create()];	//Dì˜ ê°’ì¤‘ ì„ì˜ì˜ ê°’ elementë¡œ ì„ íƒ
+	BinarySearch(D, element);				//D ë°°ì—´ì—ì„œ element search
 }
