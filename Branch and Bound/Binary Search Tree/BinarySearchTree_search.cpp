@@ -1,7 +1,8 @@
 #include <iostream>
 #include "algorithm-visualizer.h"
 
-int G[11][11] = {// G[i][j] indicates whether the path from the i-th node to the j-th node exists or not
+int G[11][11] = {	//G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
+					//즉, G의 인접행렬
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	{1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -15,7 +16,10 @@ int G[11][11] = {// G[i][j] indicates whether the path from the i-th node to the
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
 };
 
-int T[11][2] = { // mapping to G as a binary tree , [i][0] indicates left child, [i][1] indicates right child
+int T[11][2] = { 
+	//G의 연관관계를 정리한 데이터
+	//노드 i의 연관관계 : [i][0] - 왼쪽 자손
+	//                   [i][1] - 오른쪽 자손(-1은 자손이 없음을 의미)
 	{-1, -1},
 	{0, 2},
 	{-1, -1},
@@ -29,6 +33,7 @@ int T[11][2] = { // mapping to G as a binary tree , [i][0] indicates left child,
 	{9, -1},
 };
 
+//visualizer{
 int key;
 Randomize::Integer integer(0, 10);
 GraphTracer		   tracer("Binary Search Tree");
@@ -43,28 +48,34 @@ void InitBinarySearchTree_search()
 	tracer.log(logger);
 	Tracer::delay();
 }
+//}
 
 void bst(int item, int node, int parent = NULL)
 {
-	//item	: ã���� �ϴ� ���
-	//node	: ���� ���
-	//parent: ���� ����� �θ� ���
 	tracer.visit(node, parent);
+	//visualizer{
 	Tracer::delay();
-	if (item == node) { // key found
+	//}
+	if (item == node) { // key 발견
+		//visualizer{
 		logger.println(" Match Found ");
+		//}
 	}
-	else if (item < node) { // key less than value of current node
+	else if (item < node) { // key 가 현재 node보다 작을경우
 		if (T[node][0] == -1) {
+			//visualizer{
 			logger.println(" Not Found ");
+			//}
 		}
 		else {
 			bst(item, T[node][0], node);
 		}
 	}
-	else { // key greater than value of current node
+	else { // key 가 현재 node보다 클 경우
 		if (T[node][1] == -1) {
+			//visualizer{
 			logger.println(" Not Found ");
+			//}
 		}
 		else {
 			bst(item, T[node][1], node);
@@ -76,5 +87,5 @@ int main()
 {
 	InitBinarySearchTree_search();
 	logger.println("Finding number "+ std::to_string(key));
-	bst(key, 5); // node with key 5 is the root
+	bst(key, 5); //5를 최초의 루트로 시작
 }

@@ -1,12 +1,13 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
+const int				GRAPHSIZE = /*(그래프 사이즈 입력)*/
 //visualizer{
-const int				GRAPHSIZE = 5;
 GraphTracer				tracer("GraphTracer");
 LogTracer				logger("LogTracer");
 Randomize::Graph<int>	graph(GRAPHSIZE, 1);
 int						G[GRAPHSIZE][GRAPHSIZE];
+int						count = 0;	//무한 재귀호출 방지
 
 void InitDepthFirstSearch_shortestPath()
 {
@@ -34,18 +35,22 @@ int e;							//도착점
 
 void DFS(int node, int parent, int weight)
 {
+	//G		 : 주어진 그래프(인접행렬)
 	//node	 : 현재 노드
 	//parent : 부모 노드
 	//weight : 현재 탐색하는 경로의 누적 weight
-	if (minWeight < weight)	return;	
+	//visualizer{
+	if (count++ > GRAPHSIZE*GRAPHSIZE) return;	//무한루프 방지
+	//}
+	if (minWeight /*(알맞은 부등호 입력)*/ weight)	return;
 	//현재 탐색하는 경로의 누적 weight가 minWeight보다 더 크면 더 탐색할 가치가 없음	
-	
+
 	if (node == e) {
 		//visualizer{
 		tracer.visit(node, parent, weight);
 		Tracer::delay();
 		//}
-		if (minWeight > weight)
+		if (minWeight /*(알맞은 부등호 입력)*/ weight)
 			minWeight = weight;
 		//visualizer{
 		tracer.leave(node, parent, minWeight);
@@ -61,7 +66,7 @@ void DFS(int node, int parent, int weight)
 	for (int i = 0; i < GRAPHSIZE; i++) {
 		if (G[node][i]) {
 			if (!D[i])
-				DFS(i, node, weight + G[node][i]);
+				DFS(/*(알맞은 인자 입력)*/);
 		}
 
 	}
@@ -75,7 +80,7 @@ void DFS(int node, int parent, int weight)
 int main()
 {
 	InitDepthFirstSearch_shortestPath();
-	Randomize::Integer integer(0, GRAPHSIZE-1);
+	Randomize::Integer integer(0, GRAPHSIZE - 1);
 	s = integer.create();		//0~4 사이의 난수 생성
 	do {
 		e = integer.create();

@@ -44,7 +44,7 @@ int main()
 		countsTracer.deselect(i - 1);
 	}
 
-	/*Àß ÃÊ±âÈ­ µÇ´ÂÁö º¸ÀÚ*/
+	/*ì˜ ì´ˆê¸°í™” ë˜ëŠ”ì§€ ë³´ì*/
 	int sortedArray[20];
 	for (int i = 0; i < 20; i++)
 		sortedArray[i] = NULL;

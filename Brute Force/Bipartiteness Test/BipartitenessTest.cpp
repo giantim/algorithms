@@ -1,20 +1,20 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
-#include <string>
 #include <vector>
 #include <queue>
 
+//visualizer{
 int G[5][5] = {
 	{0, 1, 0, 1, 1},
-  {1, 0, 1, 0, 0},
-  {0, 1, 0, 1, 0},
-  {1, 0, 1, 0, 0}, // <-- replace latest 0 with 1 to make G not biparted
-  {1, 0, 0, 0, 0},
+	{1, 0, 1, 0, 0},
+	{0, 1, 0, 1, 0},
+	{1, 0, 1, 0, 0}, // <-- replace latest 0 with 1 to make G not biparted
+	{1, 0, 0, 0, 0},
 };
 
-GraphTracer tracer("GraphTracer");
-LogTracer logger("LogTracer");
-Array1DTracer colorsTracer("Colors");
+GraphTracer		tracer("GraphTracer");
+LogTracer		logger("LogTracer");
+Array1DTracer	colorsTracer("Colors");
 
 void InitBipartitenessTest()
 {
@@ -23,13 +23,14 @@ void InitBipartitenessTest()
 	tracer.set(G);
 	Layout::setRoot(VerticalLayout({ tracer,logger,colorsTracer }));
 }
+//}visualizer
 
 bool BFSCheckBipartiteness(int s)
 {
 	std::queue<int> Q;
 
-	std::vector<int> Colors(sizeof(G) / sizeof(int));
-	for (int _i = 0; _i < sizeof(G) / sizeof(int); _i++) Colors[_i] = -1;
+	std::vector<int> Colors(sizeof(G) / sizeof(G[0]));
+	for (int _i = 0; _i < sizeof(G) / sizeof(G[0]); _i++) Colors[_i] = -1;
 	colorsTracer.set(Colors);
 
 	Colors[s] = 1;
@@ -40,8 +41,10 @@ bool BFSCheckBipartiteness(int s)
 	while (Q.size() > 0)
 	{
 		int node = Q.front(); Q.pop();
+		//visualizer{
 		tracer.visit(node);
 		Tracer::delay();
+		//}
 
 		for (int i = 0; i < sizeof(G[node]) / sizeof(int); i++)
 		{
@@ -52,16 +55,22 @@ bool BFSCheckBipartiteness(int s)
 
 					Q.push(i);
 					tracer.visit(i, node);
+					//visualizer{
 					Tracer::delay();
+					//}
 				}
 				else if (Colors[i] == Colors[node]) {
+					//visualizer{
 					logger.println("Graph is not bipated");
+					//}
 					return false;
 				}
 			}
 		}
 	}
+	//visualizer{
 	logger.println("Graph is biparted");
+	//}
 	return true;
 }
 

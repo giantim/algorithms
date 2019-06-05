@@ -7,7 +7,7 @@ GraphTracer				tracer("GraphTracer");
 Array1DTracer			tracerS("Array1DTracer");
 LogTracer				logger("LogTracer");
 Randomize::Graph<int>	graph(5, 1);
-//±×·¡ÇÁÀÇ °æ¿ì fillÀº 1Â÷¿ø ¹è¿­¸¸ ¹Ş´Âµ¥ setÀº 2Â÷¿ø ¹è¿­·Î ÇØ¾ßµÇ¼­ ¸Å¿ì ºÒÆí
+//ê·¸ë˜í”„ì˜ ê²½ìš° fillì€ 1ì°¨ì› ë°°ì—´ë§Œ ë°›ëŠ”ë° setì€ 2ì°¨ì› ë°°ì—´ë¡œ í•´ì•¼ë˜ì„œ ë§¤ìš° ë¶ˆí¸
 int G[5][5];
 int _G[25];
 int MAX_VALUE = 2147483647;

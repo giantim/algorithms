@@ -21,6 +21,7 @@ int G[11][11] = {
 
 GraphTracer tracer("GraphTracer");
 LogTracer   logger("LogTracer");
+int			count = 0;
 
 void InitBreadthFirstSearch_tree()
 {
@@ -40,11 +41,14 @@ void BFS(int s)
 	tracer.visit(s);
 	Tracer::delay();
 	//}
-	while (Q.size() > 0) {
-		int node = Q.front(); 
+	while (/*(알맞은 조건 입력)*/) {
+		//visualizer{
+		if (count++ > 130) break;	//무한루프 방지
+		//}
+		int node = Q.front();	//dequeue
 		Q.pop();
 		for (int i = 0; i < 11; i++) {
-			if (G[node][i]) {
+			if (/*(알맞은 조건 입력)*/) {
 				Q.push(i);
 				//visualizer{
 				tracer.visit(i, node);

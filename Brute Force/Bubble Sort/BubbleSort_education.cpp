@@ -1,13 +1,15 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
+const int				MAXLENGH = /*(배열 길이 입력)*/
+
 //visualizer{
-const int				MAXLENGH = 15;
 ChartTracer				chart("ChartTracer");
 Array1DTracer			tracer("Array1DTracer");
 LogTracer				logger("LogTracer");
 int						*D = new int[MAXLENGH];
 Randomize::Array1D<int> array1D(MAXLENGH);
+int						count = 0;	//무한루프 방지
 
 void InitBubbleSort()
 {
@@ -24,6 +26,7 @@ void InitBubbleSort()
 
 int main()
 {
+	//참고: D가 정렬하고자 하는 배열
 	//visualizer{
 	InitBubbleSort();
 	logger.print("original array = [");
@@ -41,13 +44,13 @@ int main()
 		tracer.select(N - 1);
 		Tracer::delay();
 		//}
-		for (int i = 1; i < N; i++)
+		for (int i = 1;/*(알맞은 조건 입력)*/; i++)
 		{
 			//visualizer{
 			tracer.select(i);
 			Tracer::delay();
 			//}
-			if (D[i - 1] > D[i]) {
+			if (/*알맞은 조건 입력*/) {
 				//visualizer{
 				logger.println("swap " + std::to_string(D[i - 1]) + " and " +
 					std::to_string(D[i]));
@@ -71,7 +74,10 @@ int main()
 		//visualizer{
 		tracer.deselect(N - 1);
 		//}
-		N--;
+		
+		/*(N값을 알맞게 조정)*/
+		count++;
+		if (count > MAXLENGH*MAXLENGH) break;	//무한루프 방지
 	} while (swapped);
 	//visualizer{
 	logger.println("sorted array = ");

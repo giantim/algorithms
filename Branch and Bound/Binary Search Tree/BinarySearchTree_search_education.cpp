@@ -1,8 +1,9 @@
 #include <iostream>
 #include "algorithm-visualizer.h"
 
-int G[11][11] = {	//G[i][j] ´Â i ³ëµå¿¡¼­ j ³ëµå·ÎÀÇ edge°¡ Á¸ÀçÇÏ´ÂÁö À¯¹«ÀÌ´Ù
-					//Áï, GÀÇ ÀÎÁ¢Çà·Ä
+int G[11][11] = {	
+	//G[i][j] ëŠ” i ë…¸ë“œì—ì„œ j ë…¸ë“œë¡œì˜ edgeê°€ ì¡´ì¬í•˜ëŠ”ì§€ ìœ ë¬´
+	//ì¦‰, Gì˜ ì¸ì ‘í–‰ë ¬
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	{1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -17,9 +18,9 @@ int G[11][11] = {	//G[i][j] ´Â i ³ëµå¿¡¼­ j ³ëµå·ÎÀÇ edge°¡ Á¸ÀçÇÏ´ÂÁö À¯¹«ÀÌ´Ù
 };
 
 int T[11][2] = {
-	//GÀÇ ¿¬°ü°ü°è¸¦ Á¤¸®ÇÑ µ¥ÀÌÅÍ
-	//³ëµå iÀÇ ¿¬°ü°ü°è : [i][0] - ¿ŞÂÊ ÀÚ¼Õ
-	//                   [i][1] - ¿À¸¥ÂÊ ÀÚ¼Õ(-1Àº ÀÚ¼ÕÀÌ ¾øÀ½À» ÀÇ¹Ì)
+	//Gì˜ ì—°ê´€ê´€ê³„ë¥¼ ì •ë¦¬í•œ ë°ì´í„°
+	//ë…¸ë“œ iì˜ ì—°ê´€ê´€ê³„ : [i][0] - ì™¼ìª½ ìì†
+	//                   [i][1] - ì˜¤ë¥¸ìª½ ìì†(-1ì€ ìì†ì´ ì—†ìŒì„ ì˜ë¯¸)
 	{-1, -1},
 	{0, 2},
 	{-1, -1},
@@ -51,46 +52,46 @@ void InitBinarySearchTree_search()
 
 void bst(int item, int node, int parent = NULL)
 {
-	//item	: Ã£°íÀÚ ÇÏ´Â ³ëµå
-	//node	: ÇöÀç ³ëµå
-	//parent: ÇöÀç ³ëµåÀÇ ºÎ¸ğ ³ëµå
+	//item	: ì°¾ê³ ì í•˜ëŠ” ë…¸ë“œ
+	//node	: í˜„ì¬ ë…¸ë“œ
+	//parent: í˜„ì¬ ë…¸ë“œì˜ ë¶€ëª¨ ë…¸ë“œ
 	//visualize {
 	tracer.visit(node, parent);
 	Tracer::delay();
 	//}
-	if (item == node) {		// key ¹ß°ß
+	if (item == node) {		// key ë°œê²¬
 		//visualize {
 		logger.println(" Match Found ");
 		//}
 	}
-	else if (item < node) { // key °¡ ÇöÀç ³ëµåº¸´Ù ÀÛÀ» ¶§
-		if (T[node][/*(¾Ë¸ÂÀº indexÀÔ·Â)*/] == /*(³ëµåÀÇ ³¡¿¡ µµ´ŞÇßÀ» Á¶°Ç)*/) {
+	else if (item < node) { // key ê°€ í˜„ì¬ ë…¸ë“œë³´ë‹¤ ì‘ì„ ê²½ìš°
+		if (T[node][/*(ì•Œë§ì€ indexì…ë ¥)*/] == /*(ë…¸ë“œì˜ ëì— ë„ë‹¬í–ˆì„ ì¡°ê±´)*/) {
 			//visualize {
 			logger.println(" Not Found ");
 			//}
 		}
 		else {
-			bst(/*(Àü´ŞµÉ ÀÎÀÚ¸¦ ÀÔ·Â)*/, T[node][0], node);
+			bst(/*(ì „ë‹¬ë  ì¸ìë¥¼ ì…ë ¥)*/, T[node][0], node);
 		}
 	}
-	else { // key greater than value of current node
-		if (T[node][/*(¾Ë¸ÂÀº indexÀÔ·Â)*/] == /*(³ëµåÀÇ ³¡¿¡ µµ´ŞÇßÀ» Á¶°Ç)*/) {
+	else { // key ê°€ í˜„ì¬ nodeë³´ë‹¤ í´ ê²½ìš°
+		if (T[node][/*(ì•Œë§ì€ indexì…ë ¥)*/] == /*(ë…¸ë“œì˜ ëì— ë„ë‹¬í–ˆì„ ì¡°ê±´)*/) {
 			//visualize{
 			logger.println(" Not Found ");
 			//}
 		}
 		else {
-			bst(/*(Àü´ŞµÉ ÀÎÀÚ¸¦ ÀÔ·Â)*/, T[node][1], node);
+			bst(/*(ì „ë‹¬ë  ì¸ìë¥¼ ì…ë ¥)*/, T[node][1], node);
 		}
 	}
 }
 
 int main()
 {
-	key = integer.create();			//key°ª »ı¼º
+	key = integer.create();			//keyê°’ ìƒì„±
 	//visualize {
 	InitBinarySearchTree_search();
 	logger.println("Finding number " + std::to_string(key));
 	//}
-	bst(key, 5); // node with key 5 is the root
+	bst(key, 5); //5ë¥¼ ìµœì´ˆì˜ ë£¨íŠ¸ë¡œ ì‹œì‘
 }
