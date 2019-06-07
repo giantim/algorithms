@@ -1,14 +1,15 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
+
+const int				ARRAYSIZE = /*(배열 길이 입력)*/
 //visualizer{
-const int				ARRAYSIZE = 17;
 ChartTracer				chart("ChartTracer");
 Array1DTracer			tracer("Array1DTracer");
 LogTracer				logger("LogTracer");
 Randomize::Array1D<int> array1D(ARRAYSIZE);
 int						D[ARRAYSIZE];
-
+int						count = 0;	//무한루프 방지
 
 void InitSeletionSort()
 {
@@ -25,11 +26,11 @@ int main()
 	InitSeletionSort();
 	//visualizer{
 	logger.print("original array = [");
-	for (int i = 0; i < ARRAYSIZE-1; i++)
+	for (int i = 0; i < ARRAYSIZE - 1; i++)
 	{
 		logger.print(std::to_string(D[i]) + " , ");
 	}
-	logger.println(std::to_string(D[ARRAYSIZE-1]) + " ] ");
+	logger.println(std::to_string(D[ARRAYSIZE - 1]) + " ] ");
 	//}
 
 	for (int i = 0; i < sizeof(D) / sizeof(int); i++) {
@@ -42,8 +43,9 @@ int main()
 			//visualizer{
 			tracer.select(j);
 			Tracer::delay();
+			if (count++ > ARRAYSIZE*ARRAYSIZE*2) return;	//무한루프 방지
 			//}
-			if (D[j] < D[minJ]) {
+			if (/*(알맞은 조건 입력)*/) {
 				minJ = j;
 				//visualizer{
 				tracer.patch(j);
@@ -55,7 +57,7 @@ int main()
 			tracer.deselect(j);
 			//}
 		}
-		if (minJ != i) {
+		if (/*(알맞은 조건 입력)*/) {
 			//visualizer{
 			logger.println("swap " + std::to_string(D[i]) + " and " + std::to_string(D[minJ]));
 			//}
@@ -76,10 +78,10 @@ int main()
 	}
 	//visualizer{
 	logger.print("sorted array = [");
-	for (int i = 0; i < ARRAYSIZE-1; i++)
+	for (int i = 0; i < ARRAYSIZE - 1; i++)
 	{
 		logger.print(std::to_string(D[i]) + " , ");
 	}
-	logger.println(std::to_string(D[ARRAYSIZE-1]) + " ] ");
+	logger.println(std::to_string(D[ARRAYSIZE - 1]) + " ] ");
 	//}
 }

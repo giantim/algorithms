@@ -22,8 +22,6 @@ void InitBreadthFirstSearch_shortestPath()
 	graph.directed(false);
 	graph.weighted();
 	int* temp = new int[GRAPHSIZE*GRAPHSIZE];
-	//tracer.set(G);에서 G는 2차원 배열이어야 하는데 fill함수는 일차원 배열만 받아서 써야 하므로 번거로웠다
-	//->추후 수정해야할 부분
 	graph.fill(temp);
 	for (int i = 0; i < GRAPHSIZE; i++)
 	{
@@ -60,10 +58,10 @@ int BFS()
 		int node = Q.front(); Q.pop();
 		for (i = 0; i < GRAPHSIZE; i++)
 		{
-			if (G[node][i]) {						// 현재 노드와 i번째 노드 사이의 edge가 존재하면
-				if (W[i] > W[node] + G[node][i]) {	// 현재 path가 이전 path보다 짧다면
-					W[i] = W[node] + G[node][i];	// 현재 path로 업데이트
-					Q.push(i);						// 자손 노드를 큐에 삽입
+			if (G[node][i]) {						
+				if (W[i] > W[node] + G[node][i]) {	
+					W[i] = W[node] + G[node][i];	
+					Q.push(i);						
 
 					//visualizer{
 					tracer.visit(i, node, W[i]);

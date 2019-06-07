@@ -2,12 +2,12 @@
 #include <iostream>
 
 const int				MAXLENGH = /*(배열 길이 입력)*/
+int						*D = new int[MAXLENGH];	//정렬하고자 하는 배열
 
 //visualizer{
 ChartTracer				chart("ChartTracer");
 Array1DTracer			tracer("Array1DTracer");
 LogTracer				logger("LogTracer");
-int						*D = new int[MAXLENGH];
 Randomize::Array1D<int> array1D(MAXLENGH);
 int						count = 0;	//무한루프 방지
 
@@ -26,7 +26,6 @@ void InitBubbleSort()
 
 int main()
 {
-	//참고: D가 정렬하고자 하는 배열
 	//visualizer{
 	InitBubbleSort();
 	logger.print("original array = [");
@@ -77,7 +76,7 @@ int main()
 		
 		/*(N값을 알맞게 조정)*/
 		count++;
-		if (count > MAXLENGH*MAXLENGH) break;	//무한루프 방지
+		if (count > MAXLENGH*MAXLENGH) return;	//무한루프 방지
 	} while (swapped);
 	//visualizer{
 	logger.println("sorted array = ");

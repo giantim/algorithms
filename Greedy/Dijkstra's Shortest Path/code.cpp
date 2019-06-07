@@ -1,13 +1,11 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
-#include <string>
 #include <vector>
 
 GraphTracer				tracer("GraphTracer");
 Array1DTracer			tracerS("Array1DTracer");
 LogTracer				logger("LogTracer");
 Randomize::Graph<int>	graph(5, 1);
-//그래프의 경우 fill은 1차원 배열만 받는데 set은 2차원 배열로 해야되서 매우 불편
 int G[5][5];
 int _G[25];
 int MAX_VALUE = 2147483647;
@@ -24,7 +22,6 @@ void InitDijkstraShortestPath()
 	graph.fill(_G);
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			//G[i * _N + j] = G[j * _N + i];
 			G[i][j] = _G[i * 5 + j];
 		}
 	}
@@ -38,16 +35,15 @@ void InitDijkstraShortestPath()
 void Dijkstra(int start, int end) {
 	int minIndex;
 	int minDistance;
-	std::vector<int> D; // D[i] indicates whether the i-th node is discovered or not
+	std::vector<int> D;
 	for (int i = 0; i < 5; i++) D.push_back(false);
-	S[start] = 0; // Starting node is at distance 0 from itself
+	S[start] = 0; 
 	tracerS.patch(start, S[start]);
 	Tracer::delay();
 	tracerS.depatch(start);
 	tracerS.select(start);
 	int k = 5;
 	while (k--) {
-		// Finding a node with the shortest distance from S[minIndex]
 		minDistance = MAX_VALUE;
 		for (int i = 0; i < 5; i++) {
 			if (S[i] < minDistance && !D[i]) {
@@ -55,13 +51,11 @@ void Dijkstra(int start, int end) {
 				minIndex = i;
 			}
 		}
-		if (minDistance == MAX_VALUE) break; // If there is no edge from current node, jump out of loop
+		if (minDistance == MAX_VALUE) break; 
 		D[minIndex] = true;
 		tracerS.select(minIndex);
 		tracer.visit(minIndex);
 		Tracer::delay();
-		// For every unvisited neighbour of current node, we check
-		// whether the path to it is shorter if going over the current node
 		for (int i = 0; i < 5; i++) {
 			if (G[minIndex][i] && S[i] > S[minIndex] + G[minIndex][i]) {
 				S[i] = S[minIndex] + G[minIndex][i];

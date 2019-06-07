@@ -3,12 +3,13 @@
 #include <vector>
 #include <stack>
 
+Randomize::Graph<int>	graph(GRAPHSIZE, 0.3);
+//graph: DFS 방법으로 connected인지 확인할 대상이 되는 그래프
 const int				GRAPHSIZE = /*(그래프 사이즈 입력)*/
 //visualizer{
 GraphTracer				graphTracer("GraphTracer");
 Array1DTracer			visitedTracer("visited");
 LogTracer				logger("LogTracer");
-Randomize::Graph<int>	graph(GRAPHSIZE, 0.3);
 int						G[GRAPHSIZE][GRAPHSIZE];
 int						count = 0;	//무한루프 방지
 
@@ -32,7 +33,6 @@ void InitDepthFirstSearch_graph()
 
 std::vector<bool> DFSExplore(int graph[GRAPHSIZE][GRAPHSIZE], int source)
 {
-	//graph: DFS 방법으로 connected인지 확인할 대상이 되는 그래프
 	//탐색에 있어서 출발점이 되는 노드
 	std::stack<std::array<int, 2>> stack; stack.push({ source, -1 });		
 	//stack에 저장되는 데이터는 {현제노드, 부모노드}임 (-1은 노드가 없음을 의미)
@@ -77,7 +77,7 @@ std::vector<bool> DFSExplore(int graph[GRAPHSIZE][GRAPHSIZE], int source)
 			}
 		}
 		//visualizer{
-		if (count++ > GRAPHSIZE*GRAPHSIZE) break;	//무한루프 방지
+		if (count++ > GRAPHSIZE*GRAPHSIZE) return;	//무한루프 방지
 		//}
 	}
 	return visited;

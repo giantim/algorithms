@@ -2,17 +2,17 @@
 #include <vector>
 #include "algorithm-visualizer.h"
 
+
 //visualizer{
+int D[15];
 ChartTracer				chart("ChartTracer");
 Array1DTracer			tracer("Array1DTracer");
 LogTracer				logger("LogTracer");
 Randomize::Integer		integer(0, 50);
 Randomize::Array1D<int> array1D(15, integer);
-int D[15];
 
 void InitBinarySearch()
 {
-	//레이아웃 설정
 	Layout::setRoot(VerticalLayout({ chart, tracer, logger }));
 	array1D.sorted();
 	array1D.fill(D);

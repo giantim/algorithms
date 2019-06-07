@@ -12,7 +12,6 @@ Randomize::Array1D<int> array1D(MAXLENGH);
 void InitBubbleSort()
 {
 	Layout::setRoot(VerticalLayout({ chart,tracer,logger }));
-	//fill: vector로 바로 뽑을 수 있도록 수정 필요할듯
 	array1D.fill(D);
 	std::vector<int> v(MAXLENGH);
 	for (int i = 0; i < MAXLENGH; i++)
@@ -33,7 +32,7 @@ int main()
 	}
 	logger.println(std::to_string(D[MAXLENGH - 1]) + " ] ");
 	//}
-	int N = MAXLENGH;	//최대길이 설정
+	int N = MAXLENGH;	
 	bool swapped;
 	do {
 		swapped = false;

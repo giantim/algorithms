@@ -57,8 +57,6 @@ void InitBinaryTreeTraversal()
 
 void InOrder(int root, int parent = 0)
 {
-	//root	 : 현재 노드
-	//parent : 부모 노드
 	if (root == -1)		//더는 노드가 없을때
 	{
 		//visualizer {

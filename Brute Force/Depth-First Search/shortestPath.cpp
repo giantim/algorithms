@@ -27,18 +27,14 @@ void InitDepthFirstSearch_shortestPath()
 }
 //}
 
-int minWeight;					//알고리즘 진행에 따른 현재 최단거리를 저장 및 업데이트할 변수
-std::vector<bool> D(GRAPHSIZE);	//해당 노드가 방문되었는지 저장할 컨테이너
-int s;							//시작점
-int e;							//도착점
+int minWeight;					
+std::vector<bool> D(GRAPHSIZE);	
+int s;							
+int e;							
 
 void DFS(int node, int parent, int weight)
 {
-	//node	 : 현재 노드
-	//parent : 부모 노드
-	//weight : 현재 탐색하는 경로의 누적 weight
 	if (minWeight < weight)	return;	
-	//현재 탐색하는 경로의 누적 weight가 minWeight보다 더 크면 더 탐색할 가치가 없음	
 	
 	if (node == e) {
 		//visualizer{
@@ -76,18 +72,18 @@ int main()
 {
 	InitDepthFirstSearch_shortestPath();
 	Randomize::Integer integer(0, GRAPHSIZE-1);
-	s = integer.create();		//0~4 사이의 난수 생성
+	s = integer.create();		
 	do {
 		e = integer.create();
 	} while (s == e);
-	int MAX_VALUE = 2147483647;	//MAX_VALUE: int 형 정수의 최대값
-	minWeight = MAX_VALUE;		//최초 minWeight는 무한대로 설정
+	int MAX_VALUE = 2147483647;	
+	minWeight = MAX_VALUE;		
 	//visualizer{
 	logger.println("finding the shortest path from " + std::to_string(s) + " to " +
 		std::to_string(e));
 	//}
-	for (int i = 0; i < GRAPHSIZE; i++)D.push_back(false);	//초기는 모든 노드를 미방문 상태로
-	DFS(s, NULL, 0);	//현재 노드에서 탐색 시작
+	for (int i = 0; i < GRAPHSIZE; i++)D.push_back(false);	
+	DFS(s, NULL, 0);	
 	if (minWeight == MAX_VALUE) {
 		//visualizer{
 		logger.println("there is no path from " + std::to_string(s) + " to " +

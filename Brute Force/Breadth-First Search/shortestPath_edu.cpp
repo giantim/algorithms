@@ -23,8 +23,6 @@ void InitBreadthFirstSearch_shortestPath()
 	graph.directed(false);
 	graph.weighted();
 	int* temp = new int[GRAPHSIZE*GRAPHSIZE];
-	//tracer.set(G);에서 G는 2차원 배열이어야 하는데 fill함수는 일차원 배열만 받아서 써야 하므로 번거로웠다
-	//->추후 수정해야할 부분
 	graph.fill(temp);
 	for (int i = 0; i < GRAPHSIZE; i++)
 	{
@@ -59,7 +57,7 @@ int BFS()
 	while (/*(알맞은 조건을 입력)*/)
 	{
 		//visualizer{
-		if (count++ > GRAPHSIZE*GRAPHSIZE) break;	//무한루프 방지
+		if (count++ > GRAPHSIZE*GRAPHSIZE) return;	//무한루프 방지
 		//}
 		int node = Q.front(); Q.pop();	//dequeue
 		for (i = 0; /*(알맞은 조건을 입력)*/; i++)

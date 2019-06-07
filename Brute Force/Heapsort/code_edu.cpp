@@ -1,13 +1,15 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
+const int				ARRAYSIZE = /*(배열 길이 입력)*/
+
 //visualizer{
-const int				ARRAYSIZE = 10;
 ChartTracer				chart("ChartTracer");
 Array1DTracer			tracer("Array1DTracer");
 LogTracer				logger("LogTracer");
 Randomize::Array1D<int> array1D(ARRAYSIZE);
 int						D[ARRAYSIZE];
+int						count = 0; //무한 재귀호출 및 루프 방지
 
 void InitHeapSort()
 {
@@ -21,17 +23,22 @@ void InitHeapSort()
 
 void Heapify(int _array[ARRAYSIZE], int size, int root)
 {
+	//정렬할 배열구조를 힙으로 만드는 함수
+
+	//visualizer{
+	if (count++ > ARRAYSIZE*ARRAYSIZE*2) return;	//무한루프 방지
+	//}
 	int largest = root;
 	int left = 2 * root + 1;
-	int right = 2 * root + 2;
+	int right = /*(알맞은 값 입력)*/
 	int temp;
 
 	if (left < size && _array[left] > _array[largest]) {
-		largest = left;
+		largest = /*(알맞은 값 입력)*/
 	}
 
 	if (right <size && _array[right] > _array[largest]) {
-		largest = right;
+		largest = /*(알맞은 값 입력)*/
 	}
 
 	if (largest != root) {
@@ -48,7 +55,7 @@ void Heapify(int _array[ARRAYSIZE], int size, int root)
 		tracer.depatch(root);
 		tracer.depatch(largest);
 		//}
-		Heapify(_array, size, largest);
+		Heapify(_array, size, /*(알맞은 값 입력)*/);
 	}
 }
 
@@ -74,7 +81,7 @@ void HeapSort(int _array[ARRAYSIZE], int size)
 		tracer.select(j);
 		Tracer::delay();
 		//}
-		Heapify(_array, j, 0);
+		Heapify(_array, /*(알맞은 값 입력)*/, 0);
 
 		//visualizer{
 		tracer.deselect(j);
@@ -92,13 +99,15 @@ int main()
 		logger.print(std::to_string(D[i]) + " , ");
 	}
 	logger.println(std::to_string(D[ARRAYSIZE-1]) + " ] ");
-
+	//}
 	HeapSort(D, sizeof(D) / sizeof(int));
 
+	//visualizer{
 	logger.print("Final array = [");
 	for (int i = 0; i < ARRAYSIZE-1; i++)
 	{
 		logger.print(std::to_string(D[i]) + " , ");
 	}
 	logger.println(std::to_string(D[ARRAYSIZE-1]) + " ] ");
+	//}
 }

@@ -2,7 +2,6 @@
 #include <iostream>
 #include <queue>
 
-//visualizer{
 int G[11][11] = {
 	//G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
 	//즉, G의 인접행렬
@@ -19,6 +18,7 @@ int G[11][11] = {
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 };
 
+//visualizer{
 GraphTracer tracer("GraphTracer");
 LogTracer   logger("LogTracer");
 int			count = 0;
@@ -43,7 +43,7 @@ void BFS(int s)
 	//}
 	while (/*(알맞은 조건 입력)*/) {
 		//visualizer{
-		if (count++ > 130) break;	//무한루프 방지
+		if (count++ > 130) return;	//무한루프 방지
 		//}
 		int node = Q.front();	//dequeue
 		Q.pop();

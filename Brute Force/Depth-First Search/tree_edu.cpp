@@ -1,9 +1,13 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
-#include <queue>
 
-//visualizer{
+//visualizer {
+GraphTracer		tracer("GraphTracer");
+LogTracer		logger("LogTracer");
+int				count = 0;	//무한루프 방지
 int G[11][11] = {
+	//G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
+	//즉, G의 인접행렬
 	{0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
@@ -17,10 +21,7 @@ int G[11][11] = {
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 };
 
-GraphTracer tracer("GraphTracer");
-LogTracer   logger("LogTracer");
-
-void InitBreadthFirstSearch_tree()
+void InitDepthFirstSearch_tree()
 {
 	tracer.log(logger);
 	Layout::setRoot(VerticalLayout({ tracer,logger }));
@@ -30,31 +31,24 @@ void InitBreadthFirstSearch_tree()
 }
 //}
 
-void BFS(int s)
+void DFS(int node, int parent = NULL)
 {
-	std::queue<int> Q;
-	Q.push(s);
+	//node	 : 현재 노드
+	//parent : 부모 노드
+
 	//visualizer{
-	tracer.visit(s);
+	if (count++ > 11 * 11) return;	//무한루프 방지
+	tracer.visit(node, parent);
 	Tracer::delay();
 	//}
-	while (Q.size() > 0) {
-		int node = Q.front(); 
-		Q.pop();
-		for (int i = 0; i < 11; i++) {
-			if (G[node][i]) {
-				Q.push(i);
-				//visualizer{
-				tracer.visit(i, node);
-				Tracer::delay();
-				//}
-			}
-		}
+	for (int i = 0; i < 11; i++) {
+		if (G[/*(알맞은 값 입력)*/][i])
+			DFS(/*(알맞은 값 입력)*/, node);
 	}
 }
 
 int main()
 {
-	InitBreadthFirstSearch_tree();
-	BFS(0);
+	InitDepthFirstSearch_tree();
+	DFS(0);
 }

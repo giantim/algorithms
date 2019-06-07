@@ -1,10 +1,9 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
-
+const int				ARRAYSIZE = /*(배열 길이 입력)*/
+const int				max = /*(0~max 사이의 난수로 배열 초기화-max 값 입력)*/
 //visualizer{
-const int				ARRAYSIZE = 20;
-const int				max = 9;
 Array1DTracer			arrayTracer("Array");
 Array1DTracer			countsTracer("Counts");
 Array1DTracer			sortedArrayTracer("Sorted Array");
@@ -27,9 +26,12 @@ void InitCountingSort()
 
 int main()
 {
+	//_array		: 정렬하고자 하는 배열
+	//counts		: _array의 각 원소의 갯수를 저장할 배열
+	//sortedArray	: 정렬된 _array가 들어갈 배열
 	InitCountingSort();
 	for (int i = 0; i < ARRAYSIZE; i++) {
-		int number = _array[i];
+		int number = /*(알맞은 값 입력)*/
 		counts[number]++;
 		//visualizer{
 		arrayTracer.select(i);
@@ -41,7 +43,7 @@ int main()
 	}
 
 	for (int i = 1; i <= max; i++) {
-		counts[i] += counts[i - 1];
+		counts[i] += /*(알맞은 값 입력)*/
 
 		//visualizer{
 		countsTracer.select(i - 1);
@@ -73,6 +75,7 @@ int main()
 		countsTracer.deselect(number);
 		arrayTracer.deselect(i);
 		//}
-		counts[number]--;
+
+		/*(counts[number]값을 알맞게 변경)*/
 	}
 }

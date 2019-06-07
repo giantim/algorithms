@@ -3,8 +3,6 @@
 #include <vector>
 
 int G[11][11] = {
-	//G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
-	//즉, G의 인접행렬
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	{1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -19,9 +17,6 @@ int G[11][11] = {
 };
 
 int T[11][2] = { 
-	//G의 연관관계를 정리한 데이터
-	//노드 i의 연관관계 : [i][0] - 왼쪽 자손
-	//                   [i][1] - 오른쪽 자손(-1은 자손이 없음을 의미)
 	{-1,-1},
 	{0, 2},
 	{-1, -1},
@@ -38,9 +33,9 @@ int T[11][2] = {
 //visualizer{
 int _index = 0;
 
-GraphTracer treeTracer("Traversal In-order");
-Array1DTracer arrayTracer("Print In-order");
-LogTracer logger("Log");
+GraphTracer			treeTracer("Traversal In-order");
+Array1DTracer		arrayTracer("Print In-order");
+LogTracer			logger("Log");
 
 void InitBinaryTreeTraversal()
 {
@@ -90,6 +85,6 @@ void InOrder(int root, int parent = 0)
 int main()
 {
 	InitBinaryTreeTraversal();
-	InOrder(5); //5를 최초의 루트로 시작
+	InOrder(5); 
 	logger.println("Finished");
 }

@@ -2,12 +2,14 @@
 #include <iostream>
 #include <vector>
 
+const int			X = /*(원하는 정수값 입력)*/
+const int			Y = /*(원하는 정수값 입력)*/
 //visualizer{
 Array1DTracer		tracer("Euclidean Algorithm");
 LogTracer			logger("LogTracer");
 std::vector<int>	a;
-const int			X = 465;
-const int			Y = 255;
+int					count = 0;//무한루프 방지
+
 
 void InitEuclideanGreatestCommonDivisor()
 {
@@ -21,11 +23,12 @@ void InitEuclideanGreatestCommonDivisor()
 
 int main()
 {
+	//a : GCD구할 값이 저장된 길이 2짜리 배열
 	InitEuclideanGreatestCommonDivisor();
 
 	//visualizer{
 	logger.println("Finding the greatest common divisor of " + std::to_string(a[0])
-		+ " and " +std::to_string(a[1]));
+		+ " and " + std::to_string(a[1]));
 
 	logger.println("Checking if first number is at most the second number");
 	//}
@@ -41,13 +44,17 @@ int main()
 		//}
 	}
 
-	while (a[0] > 0) {
+	while (a[0] /*(알맞은 조건 입력)*/ 0) {
 		//visualizer{
 		logger.println(std::to_string(a[1]) + " % " + std::to_string(a[0]) + " = "
 			+ std::to_string(a[1] % a[0]));
 		logger.println("Switching a[1] with a[1]%a[0]");
+		if (count++ > 100) {
+			logger.println(" Your code has fallen into an infinite loop or Recursive call ");
+			return;
+		}
 		//}
-		a[1] %= a[0];
+		a[1] /*(알맞은 연산자 입력)*/ a[0];
 		//visualizer{
 		tracer.patch(1, a[1]);
 		Tracer::delay();

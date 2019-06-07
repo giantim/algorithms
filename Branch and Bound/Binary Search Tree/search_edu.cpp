@@ -39,6 +39,7 @@ int key;
 Randomize::Integer integer(0, 10);
 GraphTracer		   tracer("Binary Search Tree");
 LogTracer		   logger("Log");
+int				   count = 0;//무한루프 방지
 
 void InitBinarySearchTree_search()
 {
@@ -52,10 +53,8 @@ void InitBinarySearchTree_search()
 
 void bst(int item, int node, int parent = NULL)
 {
-	//item	: 찾고자 하는 노드
-	//node	: 현재 노드
-	//parent: 현재 노드의 부모 노드
 	//visualize {
+	if (count++ > 11 * 11 * 11) return; //무한 재귀호출 방지
 	tracer.visit(node, parent);
 	Tracer::delay();
 	//}
