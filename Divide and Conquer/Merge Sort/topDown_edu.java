@@ -7,7 +7,8 @@ public class Main {
 	private static Array1DTracer tracer = new Array1DTracer();
 	private static LogTracer logger = new LogTracer("Console");
 	//}
-	private static Object[] D = new Randomize.Array1D(15).create();
+	private static int sizeOfArray = /*배열 크기 입력*/
+	private static Object[] D = new Randomize.Array1D(sizeOfArray).create();
 
 	Main()
 	{
@@ -30,8 +31,9 @@ public class Main {
 		if (Math.abs(end - start) <= 1) return;
 		int middle = (int) Math.ceil(((float)start + (float)end) / 2);
 		
-		merge(start, middle);
-		merge(middle, end);
+		//알맞은 값을 입력
+		merge(/*?*/, /*?*/);
+		merge(/*?*/, /*?*/);
 		//visualizer{
 		logger.println("divide left [" + start + ", " + (middle -1) + "], " + "right [" + (middle) + ", " +  (end - 1) + "]");
 		//}
@@ -44,7 +46,8 @@ public class Main {
 		int rightSize = end - middle;
 		int maxSize = Math.max(leftSize, rightSize);
 		int size = end - start;
-
+		
+        //Queue를 이용한 정렬을 위해 left right Queue 선언
 		Queue<Integer> left = new LinkedList<Integer>() ;
 		Queue<Integer> right = new LinkedList<Integer>() ;
 		
@@ -52,7 +55,7 @@ public class Main {
 
 		for (i = 0; i < maxSize; i++) {
 			if (i < leftSize) {
-				left.offer( (Integer)D[start + i] );
+				left.offer( (Integer)D[/*?*/] ); //올바른 enqueue를 위한 값 입력
 				//visualizer{
 				tracer.select(start + i);
 				logger.println("insert value into left array [" + i + "] =" + D[start + i]);
@@ -60,7 +63,7 @@ public class Main {
 				//}
 			}
 			if (i < rightSize) {
-				right.offer( (Integer)D[middle + i] );
+				right.offer( (Integer)D[/*?*/] ); //올바른 enqueue를 위한 값 입력
 				//visualizer{
 				tracer.select(middle + i);
 				logger.println("insert value into right array [" + i + "] =" + D[middle + i]);
@@ -74,25 +77,28 @@ public class Main {
 		{
 			if (left.size() != 0 && right.size()!= 0) 
 			{
-				if (left.peek() > right.peek()) 
+			    //left가 더 클 때
+				if (left./*?*/ > right./*?*/) 
 				{
-					D[start + i] = right.poll();
+					D[start + i] = right./*?*/
 					logger.println("rewrite from right array [" + i + "] = " + D[start + i]);
 				} 
 				else 
 				{
-					D[start + i] = left.poll();
+					D[start + i] = left./*?*/
 					logger.println("rewrite from left array [" + i + "] = " + D[start + i]);
 				}
 			} 
-			else if (left.peek() != null)
+			//left Queue 가 null 일 때
+			else if (left/*?*/ != null)
 			{
-				D[start + i] = left.poll();
+				D[start + i] = left/*?*/;
 				logger.println("rewrite from left array [" + i + "] = " + D[start + i]);
 			} 
+			//right Queue 가 null 일 때
 			else 
 			{
-				D[start + i] = right.poll();
+				D[start + i] = right/*?*/;
 				logger.println("rewrite from right array [" + i + "] = " +  D[start + i]);
 			}
             //visualizer{

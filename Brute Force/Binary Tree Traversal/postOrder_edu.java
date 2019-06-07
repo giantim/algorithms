@@ -1,6 +1,9 @@
 import org.algorithm_visualizer.*;
 
-public class Main {
+public class Main 
+{
+    // G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
+	// 즉, G의 인접행렬
 	int[][] G = { 
 	    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 	    { 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -14,7 +17,10 @@ public class Main {
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
 	};
-
+            
+    // T행렬은 그래프 G의 각 노드들의 연관관계를 정의한 배열
+    // ex) T[i] = {j, k} : i-노드는 J 왼쪽 자손과, k 오른쪽 자손을 갖는다.
+    //     -1 일 때는 자손이 없음을 의미
 	int[][] T = {
 	    { -1, -1 },
 	    { 0, 2 },
@@ -36,8 +42,9 @@ public class Main {
 	// }
 	int index = 0;
 
-	Main() {
-	    //visualizer{
+	Main() 
+	{
+	   // 5번 노드를 root로 하여, inOrder 함수 실행 {
 		Layout.setRoot(new VerticalLayout(new Commander[] { treeTracer, arrayTracer, logger }));
 		treeTracer.set(G);
 		treeTracer.layoutTree(5);
@@ -51,10 +58,15 @@ public class Main {
 		logger.println("Finished");
 	}
 
-	void postOrder(int root, int parent) {
-		if (root == -1) {
+    //root : 트리의 root 노드, parent : 해당 노드의 부모 노드
+	void postOrder(int root, int parent) 
+	{
+		if (root == -1) 
+		{   
+		    //더이상  Backtracking할 노드가 존재하지 않을 때{
 			logger.println("No more nodes. Backtracking.");
 			Tracer.delay();
+			//}
 			return;
 		}
         //visualizer{
@@ -67,13 +79,13 @@ public class Main {
 		logger.println("   Going left from " + Integer.toString(root));
 		Tracer.delay();
 		//}
-		postOrder(T[root][0], root);
+		postOrder( T[/*?*/][/*?*/], /*?*/);
 
         //오른쪽 자손 노드로 이동{
 		logger.println("   Going right from " + Integer.toString(root));
 		Tracer.delay();
 		//}
-		postOrder(T[root][1], root);
+		postOrder( T[/*?*/][/*?*/], /*?*/);
         
         //현재 노드 출력{
 		logger.println("Printing " + Integer.toString(root));

@@ -6,9 +6,11 @@ class Main {
     private static ChartTracer chartTracer = new ChartTracer();
     private static LogTracer logTracer = new LogTracer("Console");
     //}
-    private static int sizeOfArray = 15;
-    private static int minValue = 1;
-    private static int maxValue = 20;
+    private static int sizeOfArray = /*배열 크기 입력*/
+    private static int minValue = /*배열 최소값 입력*/
+    private static int maxValue = /*배열 최대값 입력*/
+    
+    //array[] :sizeOfArray개의 minValue ~ maxValue 사이의 난수 값을 갖는 배열
     private static Integer [] array = (Integer[]) new Randomize.Array1D(sizeOfArray, new Randomize.Integer(minValue, maxValue)).create();
 
     public static void main(String[] args) {
@@ -21,15 +23,16 @@ class Main {
         //}
         for (int i = 1; i < length; i++) 
         {
-            int j = i - 1;
+            int j = /*알맞은 값*/;
             int temp = array[i];
             //visualizer{
             chartTracer.select(i);
             Tracer.delay();
             logTracer.printf("insert %s\n",temp);
             //}
-            while (j >= 0 && array[j] > temp)
+            while (/*알맞은 조건*/)
              {
+                //밀어내기
                 array[j + 1] = array[j];
                 //visualizer{
                 chartTracer.patch(j + 1, array[j + 1]);
@@ -38,7 +41,8 @@ class Main {
                 //}
                 j--;
             }
-            array[j + 1] = temp;
+            //다음 값 저장
+            array[/*?*/] = /*?*/;
             //visualizer{
             chartTracer.patch(j + 1, temp);
             Tracer.delay();

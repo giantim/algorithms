@@ -7,9 +7,10 @@ public class Main {
 	private static LogTracer logger = new LogTracer("Console");
 	private static Array1DTracer tracer = new Array1DTracer("Array1DTracer");
 	//}
-	private static int sizeOfArray = 10;
-	private static int minValue = 1;
-	private static int maxValue = 20;
+	private static int sizeOfArray = /*배열 크기 입력*/
+    private static int minValue = /*배열 최소값 입력*/
+    private static int maxValue = /*배열 최대값 입력*/
+    
 	//array[] :sizeOfArray개의 minValue ~ maxValue 사이의 난수 값을 갖는 배열
     private static Integer [] array = (Integer[]) new Randomize.Array1D(sizeOfArray, new Randomize.Integer(minValue, maxValue)).create();
 	Main()
@@ -25,14 +26,17 @@ public class Main {
 			logger.print(array[i] + " ");
 	}
 
-	void heapSort(Integer[] array, int size) {
+	void heapSort(Integer[] array, int size) 
+	{
 		int i, j, temp;
 
-		for (i = (int) (Math.ceil(size / 2) - 1); i >= 0; i--) {
+		for (i = (int) (Math.ceil(size / 2) - 1); i >= 0; i--) 
+		{
 			heapify(array, size, i);
 		}
 
-		for (j = size - 1; j >= 0; j--) {
+		for (j = size - 1; j >= 0; j--) 
+		{
 			temp = array[0];
 			array[0] = array[j];
 			array[j] = temp;
@@ -57,22 +61,27 @@ public class Main {
 	void heapify(Integer[] array, int size, int root) 
 	{
 		int largest = root;
-		int left = 2 * root + 1;
-		int right = 2 * root + 2;
+		int left = /*알맞은 값*/
+		int right = /*알맞은 값*/
 		int temp;
 
-		if (left < size && array[left] > array[largest]) {
+		if (left < size && /*알맞은 조건*/)
+		{
 			largest = left;
 		}
 
-		if (right < size && array[right] > array[largest]) {
+		if (right < size && /*알맞은 조건*/) 
+		{
 			largest = right;
 		}
 
-		if (largest != root) {
-			temp = array[root];
-			array[root] = array[largest];
-			array[largest] = temp;
+		if (largest != root) 
+		{
+		    //swap ( array[root], array[largest] )
+			temp = /*?*/
+			/*?*/ = /*?*/
+			/*?*/ = /*?*/
+			
             //visualizer{
 			tracer.patch(root, array[root]);
 			tracer.patch(largest, array[largest]);

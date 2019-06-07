@@ -2,7 +2,8 @@ import org.algorithm_visualizer.*;
 import java.util.*;
 
 public class Main {
-	//visualizer{
+    
+    //visualizer{
 	private static GraphTracer tracer;
 	private static LogTracer logger;
 	//}
@@ -11,7 +12,9 @@ public class Main {
 	
 	
 	Main() 
-	{                                     
+	{   
+	    // G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
+	    // 즉, G의 인접행렬
 		int[][] G =	{ 
 				{0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
@@ -38,14 +41,18 @@ public class Main {
 		DFS(G,0,0);
 	}
 
-	void DFS(int[][] G, int node, int parent) { 
+	void DFS(int[][] G, int node, int parent) 
+	{ 
 		//visualizer{
 		tracer.visit(node, parent);
 		Tracer.delay();
 		//}
-		for (int i = 0; i < G[node].length; i++) {
-			if (G[node][i] != 0) { 
-				DFS(G, i, node); 
+		for (int i = 0; i < G[node].length; i++)
+		{
+			if (G[node][i] != 0)
+			{ 
+                //재귀 호출
+				DFS(/*?*/, /*?*/, /*?*/); 
 			}
 		}
 	}

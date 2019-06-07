@@ -31,17 +31,24 @@ public class Main {
 		BFS(0);
 	}
 
-	void BFS(Integer s) { // s = start node
+    // s = start node
+	void BFS(Integer s) 
+	{ // BFS를 위한 Queue 선언
         Queue<Integer> Q = new LinkedList<Integer>();
-        Q.offer(s); // add start node to queue
+        Q./*?*/; 
         //visualizer{
         tracer.visit(s);
         Tracer.delay();
         //}
-        while (Q.size() > 0) {
-          int node = Q.poll(); // dequeue
-          for (int i = 0; i < G[node].length; i++) {
-            if ((int)G[node][i] != 0) { // if current node has the i-th node as a child
+        while (Q.size() > 0) 
+        {
+          int node = Q./*?*/; //dequeue
+          
+          for (int i = 0; i < G[node].length; i++) 
+          {
+            //현재 노드가 i노드를 child로 가진다면
+            if ((int)G[/*?*/][/*?*/] != /*?*/)
+            { 
               Q.offer(i); // add child node to queue
               //visualizer{
               tracer.visit(i, node);
@@ -50,7 +57,7 @@ public class Main {
             }
           }
         }
-      }
+    }
 	
 	public static void main(String[] args) {
 		new Main();

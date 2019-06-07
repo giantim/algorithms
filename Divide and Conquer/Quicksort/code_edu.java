@@ -7,7 +7,11 @@ class Main {
     private static LogTracer logTracer = new LogTracer("Console");
     private static Array1DTracer tracer = new Array1DTracer();
     //}
-    private static Integer[] array = (Integer[]) new Randomize.Array1D(15, new Randomize.Integer(1, 20)).create();
+    private static int sizeOfArray = /*배열 크기 입력*/
+    private static int minValue = /*배열 최소값 입력*/
+    private static int maxValue = /*배열 최대값 입력*/
+    //array[] :sizeOfArray개의 minValue ~ maxValue 사이의 난수 값을 갖는 배열
+    private static Integer [] array = (Integer[]) new Randomize.Array1D(sizeOfArray, new Randomize.Integer(minValue, maxValue)).create();
 
     public static void main(String[] args) {
         //visualizer{
@@ -26,17 +30,20 @@ class Main {
 
     public static void quickSort(Integer[] arr, int left, int right) {
         int l, r, s;
-        while (right > left) {
+        while (right > left) 
+        {
             l = left;
             r = right;
-            s = arr[left];
-            while (l < r) {
+            s = arr[left]; //pivot
+            while (/*알맞은 조건*/) 
+            {
                 //visualizer{
                 tracer.select(left);
                 tracer.select(right);
                 Tracer.delay();
                 //}
-                while (arr[r] > s) {
+                while (/*알맞은 조건*/) 
+                {
                     //visualizer{
                     tracer.select(r);
                     Tracer.delay();
@@ -50,7 +57,8 @@ class Main {
                 Tracer.delay();
                 tracer.depatch(l);
                 //}
-                while (s >= arr[l] && l < r) {
+                while (/*알맞은 조건*/ && /*알맞은 조건*/) 
+                {
                     //visualizer{
                     tracer.select(l);
                     Tracer.delay();
