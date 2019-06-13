@@ -79,13 +79,13 @@ public class Main
 		logger.println("   Going left from " + Integer.toString(root));
 		Tracer.delay();
 		//}
-		postOrder( T[/*?*/][/*?*/], /*?*/);
+		postOrder( T[/*(?)*/][/*(?)*/], /*(?)*/);
 
         //오른쪽 자손 노드로 이동{
 		logger.println("   Going right from " + Integer.toString(root));
 		Tracer.delay();
 		//}
-		postOrder( T[/*?*/][/*?*/], /*?*/);
+		postOrder( T[/*(?)*/][/*(?)*/], /*(?)*/);
         
         //현재 노드 출력{
 		logger.println("Printing " + Integer.toString(root));

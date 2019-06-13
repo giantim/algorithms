@@ -7,9 +7,9 @@ public class Main {
 	private static LogTracer logger = new LogTracer("Console");
 	private static Array1DTracer tracer = new Array1DTracer("Array1DTracer");
 	//}
-	private static int sizeOfArray = /*배열 크기 입력*/
-    private static int minValue = /*배열 최소값 입력*/
-    private static int maxValue = /*배열 최대값 입력*/
+	private static int sizeOfArray = /*(배열 크기 입력)*/
+    private static int minValue = /*(배열 최소값 입력)*/
+    private static int maxValue = /*(배열 최대값 입력)*/
     
 	//array[] :sizeOfArray개의 minValue ~ maxValue 사이의 난수 값을 갖는 배열
     private static Integer [] array = (Integer[]) new Randomize.Array1D(sizeOfArray, new Randomize.Integer(minValue, maxValue)).create();
@@ -61,16 +61,16 @@ public class Main {
 	void heapify(Integer[] array, int size, int root) 
 	{
 		int largest = root;
-		int left = /*알맞은 값*/
-		int right = /*알맞은 값*/
+		int left = /*(알맞은 값)*/
+		int right = /*(알맞은 값)*/
 		int temp;
 
-		if (left < size && /*알맞은 조건*/)
+		if (left < size && /*(알맞은 조건)*/)
 		{
 			largest = left;
 		}
 
-		if (right < size && /*알맞은 조건*/) 
+		if (right < size && /*(알맞은 조건)*/) 
 		{
 			largest = right;
 		}
@@ -78,9 +78,9 @@ public class Main {
 		if (largest != root) 
 		{
 		    //swap ( array[root], array[largest] )
-			temp = /*?*/
-			/*?*/ = /*?*/
-			/*?*/ = /*?*/
+			temp = /*(?)*/
+			/*(?)*/ = /*(?)*/
+			/*(?)*/ = /*(?)*/
 			
             //visualizer{
 			tracer.patch(root, array[root]);

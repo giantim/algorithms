@@ -9,7 +9,7 @@ public class Main {
 	//}
 	private static Object[][] graph;  
 	private static int[] D;
-	private static int number_Of_Node = /*?*/;
+	private static int number_Of_Node = /*(?)*/;
 
 	Main() {
 	    
@@ -55,7 +55,7 @@ public class Main {
 				if (D[i] == 0) 
 				{
 				    //재귀 호출
-					DFS(/*?*/, /*?*/, /*?*/ + (int)/*?*/);
+					DFS(/*(?)*/, /*(?)*/, /*(?)*/ + (int)/*(?)*/);
 				}
 			}
 		}

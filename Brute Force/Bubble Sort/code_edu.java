@@ -6,9 +6,9 @@ public class Main {
     private static ChartTracer chartTracer = new ChartTracer();
     private static LogTracer logTracer = new LogTracer("Console");
     //}
-    private static int sizeOfArray = /*배열 크기 입력*/
-    private static int minValue = /*배열 최소값 입력*/
-    private static int maxValue = /*배열 최대값 입력*/
+    private static int sizeOfArray = /*(배열 크기 입력)*/
+    private static int minValue = /*(배열 최소값 입력)*/
+    private static int maxValue = /*(배열 최대값 입력)*/
     
     //array[] :sizeOfArray개의 minValue ~ maxValue 사이의 난수 값을 갖는 배열
     private static Integer [] array = (Integer[]) new Randomize.Array1D(sizeOfArray, new Randomize.Integer(minValue, maxValue)).create();
@@ -34,12 +34,12 @@ public class Main {
                 chartTracer.select(j + 1);
                 Tracer.delay();
                 //}
-                if (/*알맞은 조건*/) 
+                if (/*(알맞은 조건)*/) 
                 {
                     //visualizer{
                     logTracer.printf("swap %s and %s\n",array[j],array[j + 1]);
                     //}
-                    swap(/*?*/, /*?*/, array);
+                    swap(/*(?)*/, /*(?)*/, array);
                     flag = false;
                 }
                 //visualizer{
@@ -57,9 +57,9 @@ public class Main {
 
     private static void swap(int x, int y, Integer [] array) {
         //swap
-        int temp = /*?*/ 
-        /*?*/ = /*?*/
-        /*?*/ = /*?*/
+        int temp = /*(?)*/ 
+        /*(?)*/ = /*(?)*/
+        /*(?)*/ = /*(?)*/
         //visualizer{
         chartTracer.patch(x, array[x]);
         chartTracer.patch(y, array[y]);

@@ -6,8 +6,8 @@ public class Main {
 	private static Array2DTracer tracer = new Array2DTracer();
 	private static LogTracer logger = new LogTracer("Console");
 	//}
-	private static int sizeOfArray = /*배열의 크기 입력*/
-	private static int maxValue = /*배열의 최댓값 입력*/
+	private static int sizeOfArray = /*(배열의 크기 입력)*/
+	private static int maxValue = /*(배열의 최댓값 입력)*/
 	private static Object[][] D = 
 		{
 				new Randomize.Array1D(sizeOfArray, new Randomize.Integer(0, maxValue)).create(),
@@ -80,7 +80,7 @@ public class Main {
 			}
 			// }
 	       //알맞은 조건을 입력하여 merge를 수행
-			if (i < /*?*/ && (j >= /*?*/ || (int)D[/*?*/][/*?*/] <= (int)D[/*?*/][/*?*/])) {
+			if (i < /*(?)*/ && (j >= /*(?)*/ || (int)D[/*(?)*/][/*(?)*/] <= (int)D[/*(?)*/][/*(?)*/])) {
 				//visualizer {
 				if (j < end) {
 					logger.println("writing smaller value to output");
@@ -92,7 +92,7 @@ public class Main {
 				tracer.depatch(mergeTo, k);
 				tracer.deselect(mergeFrom, i);
 				// }
-				D[mergeTo][k] = D[/*?*/][/*?*/];
+				D[mergeTo][k] = D[/*(?)*/][/*(?)*/];
 				i += 1;
 			} else {
 				//visualizer {
@@ -106,7 +106,7 @@ public class Main {
 				tracer.depatch(mergeTo, k);
 				tracer.deselect(mergeFrom, j);
 				// }
-				D[mergeTo][k] = D[/*?*/][/*?*/];
+				D[mergeTo][k] = D[/*(?)*/][/*(?)*/];
 				j += 1;
 			}
 		}

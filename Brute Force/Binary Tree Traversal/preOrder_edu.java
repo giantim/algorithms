@@ -83,13 +83,13 @@ public class Main
 		logger.println("   Going left from " + Integer.toString(root));
 		Tracer.delay();
 	    //}
-		preOrder( T[/*?*/][/*?*/], /*?*/);
+		preOrder( T[/*(?)*/][/*(?)*/], /*(?)*/);
         
          //오른쪽 자손 노드로 이동{
 		logger.println("   Going right from " + Integer.toString(root));
 		Tracer.delay();
 	    //}
-		preOrder( T[/*?*/][/*?*/], /*?*/);
+		preOrder( T[/*(?)*/][/*(?)*/], /*(?)*/);
 	}
 
 	public static void main(String[] args) {

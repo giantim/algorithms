@@ -26,30 +26,30 @@ public class Main {
 		Layout.setRoot(new VerticalLayout(new Commander[] { tracer, logger }));
 		tracer.set(G);
 		tracer.layoutTree(0);
-        Tracer.delay();
+    Tracer.delay();
         //}
 		BFS(0);
 	}
 
-    // s = start node
+  // s = start node
 	void BFS(Integer s) 
 	{ // BFS를 위한 Queue 선언
         Queue<Integer> Q = new LinkedList<Integer>();
-        Q./*?*/; 
+        Q./*(?)*/ 
         //visualizer{
         tracer.visit(s);
         Tracer.delay();
         //}
         while (Q.size() > 0) 
         {
-          int node = Q./*?*/; //dequeue
+          int node = Q./*(?)*/ //dequeue
           
           for (int i = 0; i < G[node].length; i++) 
           {
             //현재 노드가 i노드를 child로 가진다면
-            if ((int)G[/*?*/][/*?*/] != /*?*/)
+            if ((int)G[/*(?)*/][/*(?)*/] != /*(?)*/)
             { 
-              Q.offer(i); // add child node to queue
+              Q./*()*/         // add child node to queue
               //visualizer{
               tracer.visit(i, node);
               Tracer.delay();

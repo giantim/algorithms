@@ -9,7 +9,6 @@ public class Main {
 	private static Object[][] graph;
 	private static String[] visited;
 	
-	
 	Main() 
 	{                                     
 		int[][] G =	{ 

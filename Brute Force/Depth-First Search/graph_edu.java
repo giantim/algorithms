@@ -51,11 +51,11 @@ public class Main {
         
  		for (int i = 0; i < visited.length; i++)
  		{
- 			if(visited[i] != /*?*/)
+ 			if(visited[i] != /*(?)*/)
  				check = false;
  		}
  	
-		if (/*알맞은 조건*/)
+		if (/*(알맞은 조건)*/)
 		{
 			logger.println("The Graph is CONNECTED");
 		}
@@ -69,7 +69,7 @@ public class Main {
 	{
 		Stack<NodeData> stack = new Stack<NodeData>() ;
 		//처음 방문할 노드를 stack에 ???
-		stack./*?*/( new NodeData(0,-1) );
+		stack./*(?)*/( new NodeData(0,-1) );
 		visited = new String[number_Of_Node];
 		
 		//visited 배열의 모든 원소를 F로 초기화
@@ -82,9 +82,9 @@ public class Main {
         
 		while (stack.size() > 0)
 		{
-			temp = stack./*?*/;
-			int node = /* ? */;
-			int prev = /* ? */;
+			temp = stack./*(?)*/
+			int node = /*(?)*/
+			int prev = /*(?)*/
 			
 			if (visited[ node ] == "F")
 			{
@@ -92,7 +92,7 @@ public class Main {
 				//visualizer{
                 Tracer.delay();
                 //}
-                visited[ node ] = /*?*/;
+                visited[ node ] = /*(?)*/
                 //visualizer{
 				visitedTracer.patch( node, visited[node]);
                 //}
@@ -114,9 +114,9 @@ public class Main {
 
 				for (int i = 0; i < graph.length; i++)
 				{
-					if ((int)graph[node][i] != /*?*/)
+					if ((int)graph[node][i] != /*(?)*/)
 					{
-						stack./*?*/(new NodeData( /*?*/, /*?*/ ));
+						stack./*(?)*/(new NodeData( /*(?)*/, /*(?)*/ ));
 					}
 				}
 			}

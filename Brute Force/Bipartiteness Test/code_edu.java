@@ -48,11 +48,11 @@ public class Main {
 		colorsTracer.patch(s, 1);
         //}
 		//Q 에 시작 노드를 inqueue
-		Q./*?*/;
+		Q./*(?)*/;
 
 		while (Q.size()> 0) 
 		{
-			int node = Q./*?*/; // dequeue
+			int node = Q./*(?)*/; // dequeue
 			//visualizer{
 			tracer.visit(node);
 			Tracer.delay();
@@ -68,7 +68,7 @@ public class Main {
 						colorsTracer.patch(i, 1 - colors[node]);
                         //}
 						
-						Q./*?*/;
+						Q./*(?)*/;
 						
 						//visualizer{
 						tracer.visit(i, node);
@@ -76,7 +76,7 @@ public class Main {
 						//}
 					} 
 					//그래프가 biparted 하지 않을 때
-					else if (/*알맞은 조건*/)
+					else if (/*(알맞은 조건)*/)
 					{
 						logger.println("Graph is not biparted");
 						return;

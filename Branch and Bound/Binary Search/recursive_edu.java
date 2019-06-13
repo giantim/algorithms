@@ -10,9 +10,9 @@ public class Main {
 	private static Array1DTracer tracer = new Array1DTracer("Array1DTracer");
 
 	// }
-	private static int ARRAY_SIZE =       /*시각화 하고자 하는 배열의 크기 입력*/
-	private static int ARRAY_MINVALUE =   /*배열의 최솟값 입력*/
-	private static int ARRAY_MAXVALUE =   /*배열의 최댓값 입력*/
+	private static int ARRAY_SIZE =       /*(시각화 하고자 하는 배열의 크기 입력)*/
+	private static int ARRAY_MINVALUE =   /*(배열의 최솟값 입력)*/
+	private static int ARRAY_MAXVALUE =   /*(배열의 최댓값 입력)*/
 	Main() {
 		//visualizer {
 		Layout.setRoot(new VerticalLayout(new Commander[] { chart, tracer, logger }));
@@ -30,7 +30,7 @@ public class Main {
 
 	void BinarySearch(Integer[] array, int element,int minIndex, int maxIndex) 
     {
-        if (/*알맞은 조건*/) {
+        if (/*(알맞은 조건)*/) {
 			    logger.println(element +" is not found!");
 			    return;
 		}
@@ -45,7 +45,7 @@ public class Main {
 			tracer.depatch(middleIndex);
 			tracer.deselect(minIndex, maxIndex);
             //}
-        if (/*알맞은 조건*/) 
+        if (/*(알맞은 조건)*/) 
         {
             // Key 값이 middleIndex보다 우측에 있을 때 {
                 logger.println("Going right.");
@@ -53,15 +53,15 @@ public class Main {
 		    BinarySearch(array, element, /*알맞은 값 입력*/ , maxIndex);
 		    return;
 		}
-        if (/*알맞은 조건*/) 
+        if (/*(알맞은 조건)*/) 
         {
             // Key 값이 middleIndex보다 좌측에 있을 때 {
                 logger.println("Going left.");
                 //}
-		    BinarySearch(array, element, minIndex, /*알맞은 값 입력*/);
+		    BinarySearch(array, element, minIndex, /*(알맞은 값 입력)*/);
 		    return;
 		}
-        if (/*알맞은 조건*/) 
+        if (/*(알맞은 조건)*/) 
         {
             // Key 값을 찾았을 때 {
 			    logger.println(element+" is found at position " +middleIndex);

@@ -33,7 +33,7 @@ public class Main {
         int maxIndex = array.length - 1;
         int testElement;
     
-        while (/*알맞은 조건*/) 
+        while (/*(알맞은 조건)*/) 
         {
             int middleIndex = /*(middleIndex를 알맞게 설정)*/
             testElement = array[middleIndex]; //배열의 중간값
@@ -46,12 +46,12 @@ public class Main {
             tracer.depatch(middleIndex);
             tracer.deselect(minIndex, maxIndex);
             //}
-            if (/*알맞은 조건*/) {
+            if (/*(알맞은 조건)*/) {
                 /*(minIndex,maxIndex 둘중 하나)*/ = middleIndex + 1;
                 // Key 값이 middleIndex보다 우측에 있을 때{
                 logger.println("Going right.");
                 //}
-            } else if (/*알맞은 조건*/) {
+            } else if (/*(알맞은 조건)*/) {
                 /*(minIndex,maxIndex 둘중 하나)*/ = middleIndex - 1;
                 // Key 값이 middleIndex보다 좌측에 있을 때{
                 logger.println("Going left.");

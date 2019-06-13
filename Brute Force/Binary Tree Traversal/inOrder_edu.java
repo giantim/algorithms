@@ -76,7 +76,7 @@ public class Main {
 			Tracer.delay();
 		    //}
 		//올바른 재귀호출을 값을 입력
-		inOrder( T[/*?*/][/*?*/], /*?*/);
+		inOrder( T[/*(?)*/][/*(?)*/], /*(?)*/);
 	
 	    //visualizer {
 			logger.println("Printing " + Integer.toString(root));
@@ -90,7 +90,7 @@ public class Main {
 			Tracer.delay();
 		    //}
 		//올바른 재귀호출을 위한 값을 입력
-		inOrder( T[/*?*/][/*?*/], /*?*/);
+		inOrder( T[/*(?)*/][/*(?)*/], /*(?)*/);
 	}
 
 	public static void main(String[] args) {

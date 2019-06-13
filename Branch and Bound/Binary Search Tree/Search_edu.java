@@ -3,8 +3,8 @@ import org.algorithm_visualizer.*;
 public class Main {
     
 	int G[][] = { 
-	  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 	
-	  {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},   
+	  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 	// G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
+	  {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},    // 즉, G의 인접행렬
 	  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	  {0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 	  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -16,9 +16,9 @@ public class Main {
 	  {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
 	};
     
-	int T[][] = { 
-	  {-1, -1},     
-	  {0, 2},       
+	int T[][] = { 	// T행렬은 그래프 G의 각 노드들의 연관관계를 정의한 배열
+	  {-1, -1},     // ex) T[i] = {j, k} : i-노드는 J 왼쪽 자손과, k 오른쪽 자손을 갖는다.
+	  {0, 2},       // -1 일 때는 자손이 없음을 의미
 	  {-1, -1},
 	  {1, 4},
 	  {-1, -1},
@@ -30,7 +30,7 @@ public class Main {
 	  {9, -1},
 	};
     //visualizer {
-	Integer key = new Randomize.Integer(0, G.length - 1).create(); 
+	Integer key = new Randomize.Integer(0, G.length - 1).create();
 	GraphTracer tracer = new GraphTracer(" Binary Search Tree ");
 	LogTracer logger = new LogTracer(" Log ");
 	//}
@@ -44,27 +44,38 @@ public class Main {
 		Tracer.delay();
 		logger.println("Finding number " + Integer.toString(key));
 		//}
-		bst(key, 5, null); 
+		bst(key, 5, null); //root node를 5로 set
 	}
-
-	void bst(int item, int node, Integer parent) { 
+    
+	void bst(int item, int node, Integer parent) 
+	{ // node = current node , parent = previous node
 	  //visualizer {
 	  tracer.visit(node, parent);
 	  Tracer.delay();
 	  //}
-	  if (item == node) { 
+	  if (/*(알맞은 조건)*/) { // key 탐색
 	    logger.println(" Match Found ");
-	  } else if (item < node) { 
-	    if (T[node][0] == -1) {
+	  }
+	  else if (/*(알맞은 조건)*/) 
+	  { //key가 현재 노드값 보다 작을 때
+	    if (T[node][/*(?)*/] == -1) 
+	    {
 	      logger.println(" Not Found ");
-	    } else {
-	      bst(item, T[node][0], node);
 	    }
-	  } else { 
-	    if (T[node][1] == -1) {
+	    else 
+	    {
+	      bst(item, T[node][/*(?)*/], /*(?)*/);
+	    }
+	  } 
+	  else 
+	  { //key가 현재 노드값 보다 클때
+	    if (T[node][/*(?)*/] == -1) 
+	    {
 	      logger.println(" Not Found ");
-	    } else {
-	      bst(item, T[node][1], node);
+	    }
+	    else 
+	    {
+	      bst(item, T[node][/*(?)*/], /*(?)*/);
 	    }
 	  }
 	}

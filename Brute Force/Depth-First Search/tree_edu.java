@@ -10,7 +10,6 @@ public class Main {
 	private static Object[][] graph;
 	private static String[] visited;
 	
-	
 	Main() 
 	{   
 	    // G[i][j] 는 i 노드에서 j 노드로의 edge가 존재하는지 유무
@@ -52,7 +51,7 @@ public class Main {
 			if (G[node][i] != 0)
 			{ 
                 //재귀 호출
-				DFS(/*?*/, /*?*/, /*?*/); 
+				DFS(/*(?)*/, /*(?)*/, /*(?)*/); 
 			}
 		}
 	}

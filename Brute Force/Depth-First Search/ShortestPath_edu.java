@@ -16,7 +16,7 @@
         private static int[] D;
         private static int MAX_VALUE = 0x7fffffff;
         private static int minWeight = Integer.MAX_VALUE;
-        private static int number_Of_Node = /*그래프의 Node 개수 입력*/;
+        private static int number_Of_Node = /*(그래프의 Node 개수 입력)*/;
     
         Main() {
             //visualizer{
@@ -70,9 +70,9 @@
                 tracer.visit(node, parent, weight);
                 Tracer.delay();
                 //}
-                if (minWeight > /*?*/) 
+                if (minWeight > /*(?)*/) 
                 {
-                    minWeight = /*?*/;
+                    minWeight = /*(?)*/;
                 }
                 //visualizer{
                 tracer.leave(node, parent, minWeight);
@@ -82,7 +82,7 @@
             }
             
             //현재 노드를 방문했으므로 초기화
-            D[/*?*/] = /*?*/; 
+            D[/*(?)*/] = /*(?)*/; 
             
             //visualizer{
             tracer.visit(node, parent, weight);
@@ -96,7 +96,7 @@
                     if (D[i] == 0) 
                     { 
                         // recursively call DFS
-                        DFS( /*?*/  , /*?*/ , /*?*/  + (int)/*?*/); 
+                        DFS( /*(?)*/, /*(?)*/, /*(?)*/ + (int)/*(?)*/); 
                     }
                 }
             }

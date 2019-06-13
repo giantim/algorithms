@@ -8,7 +8,7 @@ public class Main {
 	Object[][] G = new Randomize.Graph(5, 1).directed(false).weighted().create();
 	//}
 	public static Integer MAX_VALUE = Integer.MAX_VALUE;
-	public static Integer[] S = new Integer[5]; // S[end] returns the distance from start node to end node
+	public static Integer[] S = new Integer[5]; // S[end] : 시작 노드에서 끝 노드까지의 거리를 반환
 	
 	Main() {
 	    //visualizer {
@@ -41,9 +41,11 @@ public class Main {
 	void Dijkstra(Integer start, Integer end) {
 	  int minIndex = 0;
 	  int minDistance;
-	  boolean[] D = new boolean[5]; // D[i] indicates whether the i-th node is discovered or not
+	  boolean[] D = new boolean[5]; //D[i]는 i 번째 노드가 발견되었는지 여부를 나타냄
+	  
 	  for (int i = 0; i < G.length; i++) D[i] = false;
-	  S[start] = (int)0; // Starting node is at distance 0 from itself
+	  
+	  S[start] = (int)0; //시작노드는 자기와의 거리가 0
 	  //visualizer {
 	  tracerS.depatch(start, S[start]);
 	  Tracer.delay();
@@ -52,26 +54,32 @@ public class Main {
 	  //}
 	  int k = G.length;
 	  boolean temp = (k-- != 0);
-	  while (temp) {
-	    // Finding a node with the shortest distance from S[minIndex]
+	  
+	  while (temp) //S[minIndex]부터 최소거리를 가진 노드찾기
+	  {     
 	    minDistance = MAX_VALUE;
-	    for (int i = 0; i < G.length; i++) {
-	      if (S[i] < minDistance && !D[i]) {
-	        minDistance = S[i];
-	        minIndex = i;
+	    for (int i = 0; i < G.length; i++) 
+	    {
+	      if (/*(알맞은 조건)*/) 
+	      {
+	        minDistance = S[/*(?)*/];
+	        minIndex = /*(?)*/;
 	      }
 	    }
-	    if (minDistance == MAX_VALUE) break; // If there is no edge from current node, jump out of loop
+	    
+	    if (minDistance == MAX_VALUE) //현재 노드의 edge가 없으면 break
+	        break; 
+	        
 	    D[minIndex] = true;
 	    //visualizer {
 	    tracerS.select(minIndex);
 	    tracer.visit(minIndex);
 	    Tracer.delay();
 	    //}
-	    // For every unvisited neighbour of current node, we check
-	    // whether the path to it is shorter if going over the current node
+	    
+        //현재 노드의 방문하지 않은 모든 노드에 대해 현재 노드를 지나칠 때 경로가 더 짧은 지 확인
 	    for (int i = 0; i < G.length; i++) {
-	    	if (G[minIndex][i] != null && S[i] > S[minIndex] + (Integer)G[minIndex][i])
+	    	if (G[minIndex][i] != null && S[i] > S[/*(?)*/] + (Integer)G[/*(?)*/][/*(?)*/])
 	    	{
 	    		S[i] = S[minIndex] + (Integer)G[minIndex][i];
 	    		//visualizer {

@@ -51,7 +51,6 @@ public class Main {
 		}
 	}
 
-
 	int BFS(Integer s)
 	{
 		// W[i] : 시작노드에서 i노드 까지 최단 경로 길이를 저장
@@ -70,7 +69,7 @@ public class Main {
 		W[s] = 0;
 		
 		//시작 노드를 Queue에 넣는다
-		Q./*?*/       
+		Q./*(?)*/       
 		
 		//visualizer{
 		tracer.visit(s, null , 0);
@@ -78,18 +77,18 @@ public class Main {
 		//}
 		while (Q.size() > 0) 
 		{
-			int node = /*?*/; 
+			int node = /*(?)*/; 
 			for (int i = 0; i < graph[node].length; i++)
 			{
 			    //현재 노드로 부터 i 노드 까지의 path가 존재한다면
 				if ((int)graph[node][i] != 0) 
 				{ 
 				    //이전 최단 경로 값보다 현재 경로 값이 작다면
-					if (W[i] > (W[node] + (int)/*?*/)
+					if (W[i] > (W[node] + (int)/*(?)*/)
 					{ 
-						W[i] = W[node] + (int)/*?*/; // update the length of the shortest path
+						W[i] = W[node] + (int)/*(?)*/; // update the length of the shortest path
 						
-						Q.offer(i); // add child node to queue
+						Q./*(?)*/         // add child node to queue
 						//visualizer{
 						tracer.visit(i, node, W[i]);
 						Tracer.delay();
