@@ -3,7 +3,7 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
-const int				GRAPHSIZE = /*(그래프 사이즈 입력) */
+const int				GRAPHSIZE = /*(그래프 사이즈 입력)*/
 //visualizer{
 GraphTracer				tracer("GraphTracer");
 LogTracer				logger("LogTracer");
@@ -42,12 +42,12 @@ void DFS(int node, int parent, int weight)
 	D[node] = true; 
 	for (int i = 0; i < GRAPHSIZE; i++) {
 		if (G[node][i]) {
-			if (/*(알맞은 조건을 입력) */) {
-				DFS(i, node, /*(알맞은 값 입력) */);
+			if (/*(알맞은 조건을 입력)*/) {
+				DFS(i, node, /*(알맞은 값 입력)*/);
 			}
 		}
 	}
-	D[node] = /*(알맞은 값 입력) */ 
+	D[node] = /*(알맞은 값 입력)*/ 
 	//visualizer{
 	tracer.leave(node, parent, 0);
 	Tracer::delay();

@@ -26,8 +26,8 @@ void bstInsert(TreeNode* root, int value, int parent) {
 	graphTracer.visit(root->element, parent);
 	Tracer::delay();
 	//}
-	if (root->element /*(알맞은 조건 입력) */ value) {
-		if (root->leftChild /*(알맞은 조건 입력) */ NULL) {
+	if (root->element /*(알맞은 조건 입력)*/ value) {
+		if (root->leftChild /*(알맞은 조건 입력)*/ NULL) {
 			//visualizer{
 			graphTracer.addNode(value);
 			graphTracer.addEdge(root->element, value);
@@ -37,7 +37,7 @@ void bstInsert(TreeNode* root, int value, int parent) {
 			logger.println(std::to_string(value) + " Inserted");
 			//}
 			TreeNode* temp = new TreeNode(value);
-			root->leftChild = /*(알맞은 값 입력) */
+			root->leftChild = /*(알맞은 값 입력)*/
 		}
 		else {
 			//visualizer{
@@ -46,8 +46,8 @@ void bstInsert(TreeNode* root, int value, int parent) {
 			bstInsert(root->leftChild, value, root->element);
 		}
 	}
-	else if (root->element /*(알맞은 조건 입력) */ value) {
-		if (root->rightChild /*(알맞은 조건 입력) */ NULL) {
+	else if (root->element /*(알맞은 조건 입력)*/ value) {
+		if (root->rightChild /*(알맞은 조건 입력)*/ NULL) {
 			//visualizer{
 			graphTracer.addNode(value);
 			graphTracer.addEdge(root->element, value);
@@ -57,7 +57,7 @@ void bstInsert(TreeNode* root, int value, int parent) {
 			logger.println(std::to_string(value) + " Inserted");
 			//}
 			TreeNode* temp = new TreeNode(value);
-			root->rightChild = /*(알맞은 값 입력) */
+			root->rightChild = /*(알맞은 값 입력)*/
 		}
 		else {
 			//visualizer{
