@@ -10,6 +10,7 @@ LogTracer				logger("LogTracer");
 Randomize::Graph<int>	graph(GRAPHSIZE, 1);
 int						G[GRAPHSIZE][GRAPHSIZE];
 bool					D[GRAPHSIZE];
+int                     count = 0 ; //무한 재귀호출 방지
 
 void init_DepthFirstSearch_weightedGraph()
 {
@@ -33,6 +34,8 @@ void init_DepthFirstSearch_weightedGraph()
 void DFS(int node, int parent, int weight)
 {
 	//visualizer{
+    if(count++ >10000)
+        return
 	tracer.visit(node, parent, weight);
 	Tracer::delay();
 	//}
