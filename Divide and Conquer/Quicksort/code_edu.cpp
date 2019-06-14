@@ -1,8 +1,7 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
 
-//visualizer{
-const int				ARRAYSIZE = 20;
+const int				ARRAYSIZE = /*(배열 사이즈 입력)*/
 ChartTracer				chart("ChartTracer");
 Array1DTracer			tracer("Array1DTracer");
 LogTracer				logger("LogTracer");
@@ -24,7 +23,7 @@ void partition(int D[ARRAYSIZE], int low, int high)
 	int i;
 	int j;
 	int s;
-	while (high > low) {
+	while (/*(알맞은 조건 입력)*/) {
 		i = low;
 		j = high;
 		s = D[low];
@@ -34,7 +33,7 @@ void partition(int D[ARRAYSIZE], int low, int high)
 			tracer.select(low);
 			Tracer::delay();
 			//}
-			while (D[j] > s) {
+			while (/*(알맞은 조건 입력)*/) {
 				//visualizer{
 				tracer.select(j);
 				Tracer::delay();
@@ -48,7 +47,7 @@ void partition(int D[ARRAYSIZE], int low, int high)
 			Tracer::delay();
 			tracer.depatch(i);
 			//}
-			while (s >= D[i] && i < j) {
+			while (/*(알맞은 조건 입력)*/ && i < j) {
 				//visualizer{
 				tracer.select(i);
 				Tracer::delay();

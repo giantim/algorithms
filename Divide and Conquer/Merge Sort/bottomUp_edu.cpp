@@ -1,9 +1,8 @@
 #include "algorithm-visualizer.h"
 #include <iostream>
-#include <string>
-#include <cstdlib>
 #include <algorithm>
 
+//visualizer{
 Array2DTracer			tracer("Array2DTracer");
 LogTracer				logger("LogTracer");
 Randomize::Integer		integer1(0, 50);
@@ -11,7 +10,7 @@ Randomize::Integer		integer2(0, 0);
 Randomize::Array1D<int>	array1D1(20, integer1);
 Randomize::Array1D<int>	array1D2(20, integer2);
 
-int D[2][20];
+int						D[2][20];
 
 void InitMergeSort()
 {
@@ -21,19 +20,23 @@ void InitMergeSort()
 	tracer.set(D);
 	Tracer::delay();
 }
+//}
 
 void copy(int mergeFrom, int mergeTo, int start, int end)
 {
 	int i;
-	for (i = start; i < end; i++) {
+	for (i = start;/*(알맞은 조건 입력)*/; i++) {
+		//visualizer{
 		tracer.select(mergeFrom, i);
 		tracer.patch(mergeTo, i, D[mergeFrom][i]);
 		Tracer::delay();
-
+		//}
 		D[mergeTo][i] = D[mergeFrom][i];
 
+		//visualizer{
 		tracer.deselect(mergeFrom, i);
 		tracer.depatch(mergeTo, i);
+		//}
 	}
 }
 
@@ -42,52 +45,70 @@ void merge(int mergeFrom, int start, int middle, int end, int mergeTo)
 	int i = start;
 	int j = middle;
 	int k;
-
+	//visualizer{
 	logger.println("merging segments [" + std::to_string(start) + ".." + std::to_string(middle)
 		+ "] and [" + std::to_string(middle) + ".." + std::to_string(end) + "]");
 	tracer.selectRow(mergeFrom, start, end - 1);
 	Tracer::delay();
 	tracer.deselectRow(mergeFrom, start, end - 1);
+	//}
 
-	for (k = start; k < end; k++) {
+	for (k = start; /*(알맞은 조건 입력)*/; k++) {
 		if (j < end) {
+			//visualzier{
 			tracer.select(mergeFrom, j);
+			//}
 		}
 		if (i < middle) {
+			//visualizer{
 			tracer.select(mergeFrom, i);
+			//}
 		}
 		if (i < middle && j < end) {
+			//visualizer{
 			logger.println("compare index " + std::to_string(i) + " and " + std::to_string(j)
 				+ ", values: " + std::to_string(D[mergeFrom][i]) + " and " + std::to_string(D[mergeFrom][j]));
 			Tracer::delay();
+			//}
 		}
 
 		if (i < middle && (j >= end || D[mergeFrom][i] <= D[mergeFrom][j])) {
 			if (j < end) {
+				//visualizer{
 				logger.println("writing smaller value to output");
+				//}
 			}
 			else {
+				//visualizer{
 				logger.println("copying index " + std::to_string(i) + " to output");
+				//}
 			}
+			//visualizer{
 			tracer.patch(mergeTo, k, D[mergeFrom][i]);
 			Tracer::delay();
 			tracer.depatch(mergeTo, k);
 			tracer.deselect(mergeFrom, i);
-
-			D[mergeTo][k] = D[mergeFrom][i];
+			//}
+			D[mergeTo][k] = /*(알맞은 값 입력)*/
 			i += 1;
 		}
 		else {
-			if (i < middle) {
+			if (/*(알맞은 조건 입력)*/) {
+				//visualizer{
 				logger.println("writing smaller value to output");
+				//}
 			}
 			else {
-				logger.println("copying index " + std::to_string(j) +  " to output");
+				//visualizer{
+				logger.println("copying index " + std::to_string(j) + " to output");
+				//}
 			}
+			//visualizer{
 			tracer.patch(mergeTo, k, D[mergeFrom][j]);
 			Tracer::delay();
 			tracer.depatch(mergeTo, k);
 			tracer.deselect(mergeFrom, j);
+			//}
 			D[mergeTo][k] = D[mergeFrom][j];
 			j += 1;
 		}
@@ -106,16 +127,13 @@ void mergeSort(int start, int end) {
 	int mergeTo = 1;
 	int width;
 	int i;
-	for (width = 1; width < end; width *= 2) {
+	for (width = 1; /*(알맞은 조건 입력)*/; width *= 2) {
 		// visualization {
-		logger.println("merging arrays of width : " + std::to_string(width) );
+		logger.println("merging arrays of width : " + std::to_string(width));
 		// }
 		for (i = 0; i < end; i += 2 * width) {
-			merge(mergeFrom, i, _min(i + width, end), _min(i + 2 * width, end), mergeTo);
+			merge(mergeFrom, i, _min(/*(알맞은 값 입력)*/, end), _min(i + 2 * width, /*(알맞은 값 입력)*/), mergeTo);
 		}
-		// this could be copy(mergeTo, mergeFrom, start, end);
-		// but it is more effecient to swap the input arrays
-		// if you did copy here, you wouldn't need the copy at the end
 		mergeFrom = (mergeFrom == 0 ? 1 : 0);
 		mergeTo = 1 - mergeFrom;
 	}
@@ -130,19 +148,22 @@ void mergeSort(int start, int end) {
 int main()
 {
 	InitMergeSort();
+	//visualizer{
 	logger.print("original array = [");
 	for (int i = 0; i < 19; i++)
 	{
 		logger.print(std::to_string(D[0][i]) + " , ");
 	}
 	logger.println(std::to_string(D[0][19]) + " ] ");
-
+	//}
 	mergeSort(0, 20);
 
+	//visualizer{
 	logger.print("sorted array = [");
 	for (int i = 0; i < 19; i++)
 	{
 		logger.print(std::to_string(D[0][i]) + " , ");
 	}
 	logger.println(std::to_string(D[0][19]) + " ] ");
+	//}
 }
