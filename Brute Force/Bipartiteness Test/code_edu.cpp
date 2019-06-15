@@ -40,7 +40,7 @@ bool BFSCheckBipartiteness(int s)
 	//}
 	Q.push(s);
 
-	while (Q.size() > 0)
+	while (Q.size() /*(알맞은 조건 입력)*/ 0)
 	{
 		int node = Q.front(); Q.pop();
 		//visualizer{
@@ -52,7 +52,7 @@ bool BFSCheckBipartiteness(int s)
 		{
 			if (G[node][i]) {
 				if (Colors[i] == -1) {
-					Colors[i] = 1 - Colors[node];
+					Colors[i] = /*(알맞은 값 입력)*/
 					//visualizer{}
 					colorsTracer.patch(i, 1 - Colors[node]);
 					//}
@@ -62,7 +62,7 @@ bool BFSCheckBipartiteness(int s)
 					Tracer::delay();
 					//}
 				}
-				else if (Colors[i] == Colors[node]) {
+				else if (/*(알맞은 조건 입력)*/) {
 					//visualizer{
 					logger.println("Graph is not bipated");
 					//}
