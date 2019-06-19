@@ -30,7 +30,7 @@ int T[11][2] = {
 };
 
 //visualizer{
-int key;
+int				   key;
 Randomize::Integer integer(0, 10);
 GraphTracer		   tracer("Binary Search Tree");
 LogTracer		   logger("Log");

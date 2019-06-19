@@ -31,15 +31,15 @@ void BinarySearch(int array[15], int element)
 	logger.println("Using iterative binary search to find" + std::to_string(element));
 	// }
 	int minIndex =		/*(array의 최소 인덱스를 설정)*/
-		int maxIndex =		/*(array의 최대 인덱스를 설정)*/
-		int testElement;	//element와 같은지 확인하기 위한 변수
+	int maxIndex =		/*(array의 최대 인덱스를 설정)*/
+	int testElement;	//element와 같은지 확인하기 위한 변수
 
 	while (/*(알맞은 조건)*/)
 	{
 		int middleIndex = /*(middleIndex를 알맞게 설정)*/
 
 		//middleIndex를 바꿔가면서 testElement가 element와 일치하는지 탐색
-			testElement = array[middleIndex];
+		testElement = array[middleIndex];
 
 		//visualize {
 		tracer.select(minIndex, maxIndex);
